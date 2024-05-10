@@ -55,7 +55,7 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack screenOptions={{ headerShown: false }} initialRouteName='min'>
+      <Stack screenOptions={{ headerShown: false }} initialRouteName='main'>
         {/* <Stack.Screen name='(tabs)' options={{ headerShown: false }} /> */}
         <Stack.Screen name='main' options={{ headerShown: false }} />
         {/* <Stack.Screen name='modal' options={{ presentation: "modal" }} /> */}
