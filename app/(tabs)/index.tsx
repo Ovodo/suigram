@@ -1,35 +1,20 @@
-import { StyleSheet } from "react-native";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import SplashScreen from "react-native-splash-screen";
+import AnimatedSplashScreen from "@/components/SplashScreen";
 
-import EditScreenInfo from "@/components/EditScreenInfo";
-import { Text, View } from "@/components/Themed";
+const Stack = createStackNavigator();
 
-export default function TabOneScreen() {
+const Layout: React.FC = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab lddlOne</Text>
-      <View
-        style={styles.separator}
-        lightColor='#eee'
-        darkColor='rgba(255,255,255,0.1)'
-      />
-      <EditScreenInfo path='app/(tabs)/index.tsx' />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Splash">
+        <Stack.Screen name="Splash" component={AnimatedSplashScreen} />
+        {/* Add more screens here  headerMode="none"*/}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
-  },
-});
+export default Layout;

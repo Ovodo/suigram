@@ -1,10 +1,8 @@
-import { FlatList, StyleSheet, View, Animated } from "react-native";
+import React from "react";
+import { FlatList, View, Animated } from "react-native";
 import { useState, useRef } from "react";
-import { styles } from "@/style/style";
-import { LinearGradient } from "expo-linear-gradient";
 import Background from "@/components/Background";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { Text } from "@/components/Themed";
 import RoundBtn from "@/components/RoundBtn";
 import { onBoardingData } from "@/constants/data";
 import OnBoardingItem from "@/components/OnBoardingItem";
@@ -22,10 +20,10 @@ const Main = () => {
   const slideRef = useRef(null);
   return (
     <SafeAreaProvider>
-      <SafeAreaView className='flex-1'>
-        <View className='flex-1'>
+      <SafeAreaView className="flex-1">
+        <View className="flex-1">
           <Background>
-            <View className='w-full  absolute top-[5%] h-[79%] '>
+            <View className="w-full  absolute top-[5%] h-[79%] ">
               <FlatList
                 showsHorizontalScrollIndicator={false}
                 pagingEnabled
@@ -45,7 +43,7 @@ const Main = () => {
               />
             </View>
             <Paginator scrollX={scrollX} data={onBoardingData} />
-            <View className='absolute bottom-[8%]'>
+            <View className="absolute bottom-[8%]">
               <RoundBtn />
             </View>
           </Background>

@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {
   DarkTheme,
@@ -7,7 +8,6 @@ import {
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
 
 import { useColorScheme } from "@/components/useColorScheme";
 
@@ -55,9 +55,9 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack screenOptions={{ headerShown: false }} initialRouteName='main'>
+      <Stack screenOptions={{ headerShown: false }} initialRouteName="main">
         {/* <Stack.Screen name='(tabs)' options={{ headerShown: false }} /> */}
-        <Stack.Screen name='main' options={{ headerShown: false }} />
+        <Stack.Screen name="main" options={{ headerShown: false }} />
         {/* <Stack.Screen name='modal' options={{ presentation: "modal" }} /> */}
       </Stack>
     </ThemeProvider>
