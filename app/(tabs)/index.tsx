@@ -13,7 +13,7 @@ const OnBoarding = () => {
       navigation.navigate("OnBoardingItem");
     }, 2500);
 
-    return () => clearTimeout(timer); // Clear the timer to avoid memory leaks
+    return () => clearTimeout(timer); // Clear the timer to avoid memory leaks 
   }, [navigation]);
 
   return (
