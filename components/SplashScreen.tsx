@@ -1,24 +1,22 @@
-// src/SplashScreen.tsx
 import React, { useEffect } from 'react';
 import { View, Text, Animated, StyleSheet } from 'react-native';
-import SplashScreen from 'react-native-splash-screen';
 
-const AnimatedSplashScreen: React.FC = () => {
+const AnimatedSplashScreen = () => {
   const animation = new Animated.Value(1);
 
   useEffect(() => {
     Animated.timing(animation, {
       toValue: 0,
-      duration: 1000,
+      duration: 3000,
       useNativeDriver: true,
     }).start(() => {
-      SplashScreen.hide();
+    //   SplashScreen.hide();
     });
   }, [animation]);
 
   return (
     <Animated.View style={[styles.container, { opacity: animation }]}>
-      <Text style={styles.text}>Your App Name</Text>
+      <Text style={styles.text}>SUIGRAM</Text>
     </Animated.View>
   );
 };
@@ -28,7 +26,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff', // Customize as needed
+    backgroundColor: '#9D1AFE',
   },
   text: {
     fontSize: 24,

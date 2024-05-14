@@ -1,20 +1,27 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import React, { useEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import SplashScreen from "react-native-splash-screen";
 import AnimatedSplashScreen from "@/components/SplashScreen";
+import OnBoardingItem from "../main";
+import { useNavigation } from "@react-navigation/native";
 
-const Stack = createStackNavigator();
+const OnBoarding = () => {
+  const Stack = createStackNavigator();
+  const navigation = useNavigation();
 
-const Layout: React.FC = () => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.navigate("OnBoardingItem");
+    }, 2500);
+
+    return () => clearTimeout(timer); // Clear the timer to avoid memory leaks
+  }, [navigation]);
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Splash">
-        <Stack.Screen name="Splash" component={AnimatedSplashScreen} />
-        {/* Add more screens here  headerMode="none"*/}
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator initialRouteName="Splash" headerMode="none">
+      <Stack.Screen name="Splash" component={AnimatedSplashScreen} />
+      <Stack.Screen name="OnBoardingItem" component={OnBoardingItem} />
+    </Stack.Navigator>
   );
 };
 
-export default Layout;
+export default OnBoarding;
