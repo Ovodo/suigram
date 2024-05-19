@@ -1,32 +1,82 @@
+import React from 'react';
+import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
 
+const data = [
+  { key: 'All' }, { key: 'All' }, { key: 'All' }, { key: 'All' }, { key: 'All' }, { key: 'All' }, { key: 'All' }, { key: 'All' }, { key: 'All' }, { key: 'All' },{ key: 'All' },
+];
 
+const formatData = (data, numColumns) => {
+  const numberOfFullRows = Math.floor(data.length / numColumns);
 
+  let numberOfElementsLastRow = data.length - (numberOfFullRows * numColumns);
+  while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) {
+    data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
+    numberOfElementsLastRow++;
+  }
 
-
-import React, {useState} from 'react';
-import {View,Text,StyleSheet} from 'react-native';
-
-
-const All = () => {
-
-
-   return (
-
-    <>
-        <View>
-            <Text>This is All category</Text>
-        </View>
-    </>
- 
-
-  );
-
+  return data;
 };
 
-export default All;
+const numColumns = 3;
 
+export default class All extends React.Component {
+
+  renderItem = ({ item, index }) => {
+
+    if (item.empty === true) {
+      return <View style={[styles.item, styles.itemInvisible]} />;
+    }
+
+    return (
+      <View
+        style={styles.item}
+      >
+        <Text style={styles.itemText}>{item.key}</Text>
+      </View>
+    );
+
+  };
+
+  render() {
+
+    return (
+      <FlatList
+        data={formatData(data, numColumns)}
+        style={styles.container}
+        renderItem={this.renderItem}
+        numColumns={numColumns}
+      />
+    );
+
+  }
+
+}
 
 const styles = StyleSheet.create({
 
+  container: {
+    borderStyle: "solid",
+    borderColor: "transparent",
+    borderWidth: 10,
+    flex: 1,
+    marginTop: -170,
+  },
+
+  item: {
+    backgroundColor: '#4D243D',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    margin: 1,
+    height: Dimensions.get('window').width / numColumns, // approximate a square
+  },
+
+  itemInvisible: {
+    backgroundColor: 'transparent',
+  },
+
+  itemText: {
+    color: '#fff',
+  },
 
 });
