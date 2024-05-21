@@ -6,7 +6,8 @@ import { Text, View } from "@/components/Themed";
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab lddlOne</Text>
+      <Text style={styles.title}>First page
+      </Text>
       <View
         style={styles.separator}
         lightColor='#eee'
