@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { View, Text, FlatList, Pressable, Dimensions, Image, StyleSheet } from 'react-native'
 import FilterSvgComponent from '@/assets/icons/filter';
+import MutiSvgComponent from '@/assets/icons/images';
 
 const data = [
     { key: <Image source={require("@/assets/images/search/charles-deluvio-K4mSJ7kc0As-unsplash 1.png")} /> }, 
@@ -38,7 +39,9 @@ const Autosearch = () => {
     const GridView = ({item}) => {
         return (
             <View style={styles.item}>
+                <View style={styles.itemCategoryPhotos}><MutiSvgComponent/></View>
                 <Text style={styles.itemText}>{item.key}</Text>
+                <View style={styles.itemCategoryGif}>GIF</View>
             </View>
         )
     }
@@ -46,7 +49,9 @@ const Autosearch = () => {
     const ListView = ({item}) => {
         return (
             <View style={styles.listItem}>
+                <View style={styles.itemCategoryPhotos}><MutiSvgComponent/></View>
                 <Text style={styles.listText}>{item.key}</Text>
+                <View style={styles.itemCategoryGif}>GIF</View>
             </View>
         )
     }
@@ -148,6 +153,42 @@ const styles = StyleSheet.create({
         borderWidth:1,
         // width: 500,
         alignItems: 'center',
+    },
+
+    itemCategoryPhotos: {
+        borderStyle: "solid",
+        borderWidth: 1,
+        borderColor: "transparent", 
+        backgroundColor: "transparent",
+        position: "absolute",
+        zIndex: 1,
+        marginLeft: 80,
+        marginTop: 9
+    },
+
+    itemCategoryGif: {
+        borderStyle: "solid",
+        borderWidth: 1,
+        borderColor: "white", 
+        backgroundColor: "transparent",
+        position: "absolute",
+        zIndex: 1,
+        marginRight: 80,
+        marginTop: 100,
+        borderRadius: 50,
+        color: "white",
+        fontSize: 7,
+        paddingLeft: 8,
+        paddingRight: 8,
+        paddingTop: 2,
+        paddingBottom: 2,
+        
+        // padding: 2px 8px 2px 8px;
+        // gap: 10px;
+        // border-radius: 8px 0px 0px 0px;
+        // border: 0.5px 0px 0px 0px;
+        // opacity: 0px;
+
     },
 
         
