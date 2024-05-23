@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "assets/icons/search.js", "app/app-search/search.tsx"  ]
+, "assets/icons/search.js", "app/app-search/search.tsx", "components/app-search/Autosearch.tsx"  ]
 }

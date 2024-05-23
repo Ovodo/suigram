@@ -1,100 +1,86 @@
-import React, {useState, useEffect, useContext} from 'react';
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-  ScrollView,
-  SafeAreaView,
-  TextInput,
-  ActivityIndicator,
-  FlatList
-} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View,StyleSheet,ScrollView,SafeAreaView,TextInput, ActivityIndicator, Text} from 'react-native';
 
 // import filter from 'lodash.filter';
-import Icons from "react-native-vector-icons/FontAwesome";
-
-import Icons2 from "react-native-vector-icons/Entypo";
 
 import Autosearch from '@/components/app-search/Autosearch';
 
 import SearchSvgComponent from '@/assets/icons/search';
 
 
-import FilterSvgComponent from '@/assets/icons/filter';
-
 //api link 
-// const API_ENDPOINT = "";
+const API_ENDPOINT = "";
 
 const SearchScreen = () => {
 
 
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [data, setData] = useState([]);
-  // const [error, setError] = useState(null);
-  // const [fullData, setFullData] = useState([]);
-  // const [searchQuery, setSearchQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  const [fullData, setFullData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   fetchData(API_ENDPOINT);
-  // }, []);
+  useEffect(() => {
+    //setIsLoading to true
+    setIsLoading(false);
+    fetchData(API_ENDPOINT);
+  }, []);
 
-  // const fetchData = async(url) => {
-  //   try {
-  //     const response = await fetch(url);
-  //     const json = await response.json();
-  //     setData(json.results);
+  const fetchData = async(url) => {
+    try {
+      const response = await fetch(url);
+      const json = await response.json();
+      setData(json.results);
 
-  //     console.log(json.results);
-  //     setFullData(json.results);
-  //     setIsLoading(false);
-  //   }
+      console.log(json.results);
+      setFullData(json.results);
+      setIsLoading(false);
+    }
 
-  //   catch(error) {
+    catch(error) {
 
-  //     setError(error);
-  //     console.log(error);
-  //   }
-  // }
+      setError(error);
+      console.log(error);
+    }
+  }
 
-  // const handleSearch = (query) => {
-  //   setSearchQuery(query);
-  //   const formattedQuery = query.toLowerCase();
-  //   const filteredData = filter(fullData, (user)=> {
-  //     return contains(user, formattedQuery)
-  //   });
-  //   setData(filteredData);
-  // };
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    const formattedQuery = query.toLowerCase();
+    const filteredData = filter(fullData, (user)=> {
+      return contains(user, formattedQuery)
+    });
+    setData(filteredData);
+  };
 
-  // const contains = ({name, email}, query) => {
-  //   const {first, last} = name;
+  const contains = ({name, email}, query) => {
+    const {first, last} = name;
 
-  //   if(first.includes(query) || last.includes(query) || email.includes(query)) {
-  //     return true;
-  //   }
+    if(first.includes(query) || last.includes(query) || email.includes(query)) {
+      return true;
+    }
 
-  //   else {
-  //     return false;
-  //   }
-  // }
+    else {
+      return false;
+    }
+  }
 
-  // if(isLoading) {
-  //   return (
-  //     <View style={{flex:1, justifyContent: "center", alignItems:"center"}}> 
-  //       <ActivityIndicator size={"large"} color="#5500dc" />
-  //     </View>
-  //   )
-  // }
+  if(isLoading) {
+    return (
+      <View style={{flex:1, justifyContent: "center", alignItems:"center"}}> 
+        <ActivityIndicator size={"large"} color="#5500dc" />
+      </View>
+    )
+  }
 
-  // if(error) {
-  //   return (
-  //     <View style={{flex:1, justifyContent: "center", alignItems:"center"}}> 
-  //       <Text> Error in fetching data, please check your internet connection.</Text>
-  //     </View>
-  //   )
-  // }
+  if(error) {
+    return (
+      <View style={{flex:1, justifyContent: "center", alignItems:"center"}}> 
+        <Text> Error in fetching data, please check your internet connection.</Text>
+      </View>
+    )
+  }
+
 
   return (
 
@@ -121,10 +107,10 @@ const SearchScreen = () => {
                       style={styles.searchBar}
                       autoCapitalize="none"    
                       autoCorrect={false} 
-                      // value={searchQuery}
-                      // onChangeText={(query) => handleSearch(query)}   
-                      // onFocus={this.handleFocus}
-                      // onBlur={this.handleBlur}
+                      value={searchQuery}
+                      onChangeText={(query) => handleSearch(query)}   
+                      onFocus={this.handleFocus}
+                      onBlur={this.handleBlur}
                       // style={[//Your Styles, {
                       //     borderBottomColor: this.state.isFocused
                       //         ? 'black'
@@ -144,43 +130,17 @@ const SearchScreen = () => {
 
                 </View>
 
-                
-                <View style={styles.searchFilterContainer}>
-                  <FilterSvgComponent  size={20} style={styles.filterIcon}/>
-                  {/* <Icons2 name="switch" size={20} style={styles.filterIcon}/> */}
-                </View>
+              
                 
               </View>
 
 
 
-
-
-
-
-              {/* <FlatList 
-                data={data}
-                keyExtractor={(item) => item.login.username}
-                renderItem={({item})=> (
-                  <View style={styles.itemContainer}>
-                    <Image style={styles.image} source={{uri: item.picture.thumbnail}}/>
-                    <View>
-                      <Text style={styles.textName}>{item.name.first} {item.name.last}</Text>
-                      <Text style={styles.textEmail}>{item.email}</Text>
-                    </View>
-                  </View>
-                )}
-
-              
-              /> */}
-
             </SafeAreaView>
 
           </View>
 
-
-
-          <View id='search-items-container' style={styles.searchGrid}>
+          <View id='search-items-container' style={styles.searchGrid}>         
               <>
                 <Autosearch/>
               </>
@@ -189,6 +149,8 @@ const SearchScreen = () => {
         </ScrollView>
 
     </SafeAreaView>
+
+
   );
 };
 
@@ -298,6 +260,8 @@ const styles = StyleSheet.create({
 
   searchGrid: {
     borderStyle: "solid",
+    borderColor: "transparent",
+    borderWidth: 1
   },
 
   filterIcon: {
@@ -311,15 +275,10 @@ const styles = StyleSheet.create({
     justifyContent:'space-between',
   },
 
-  userProfileContainer: {
-  },
-
   userNameContainer: {
     alignItems: 'flex-start', 
   },
-  
-  userImgcontainer: {
-  },
+
 
   userImg: {
     height: 83,

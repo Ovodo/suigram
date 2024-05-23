@@ -1,109 +1,188 @@
-import React from 'react';
-import { StyleSheet, Text, View, FlatList, Dimensions, Image } from 'react-native';
+import React, {useState} from 'react';
+import { View, Text, FlatList, Pressable, Dimensions, Image, StyleSheet } from 'react-native'
+import FilterSvgComponent from '@/assets/icons/filter';
 
 const data = [
-  { key: <Image source={require("@/assets/images/search/charles-deluvio-K4mSJ7kc0As-unsplash 1.png")} /> }, 
-  { key: <Image source={require("@/assets/images/search/jesus-santos-ZBBKk2-Cgf8-unsplash 2.png")} /> }, 
-  { key: <Image source={require("@/assets/images/search/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash 2.png")} /> }, 
-  { key: <Image source={require("@/assets/images/search/Post 3.png")} /> }, 
-  { key: <Image source={require("@/assets/images/search/charles-deluvio-K4mSJ7kc0As-unsplash 1.png")} /> }, 
-  { key: <Image source={require("@/assets/images/search/jesus-santos-ZBBKk2-Cgf8-unsplash 2.png")} /> }, 
-  { key: <Image source={require("@/assets/images/search/charles-deluvio-K4mSJ7kc0As-unsplash 1.png")} /> }, 
-  { key: <Image source={require("@/assets/images/search/jesus-santos-ZBBKk2-Cgf8-unsplash 2.png")} /> }, 
-  { key: <Image source={require("@/assets/images/search/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash 2.png")} /> }, 
-  { key: <Image source={require("@/assets/images/search/Post 3.png")} /> }, 
-  { key: <Image source={require("@/assets/images/search/charles-deluvio-K4mSJ7kc0As-unsplash 1.png")} /> }, 
-  { key: <Image source={require("@/assets/images/search/jesus-santos-ZBBKk2-Cgf8-unsplash 2.png")} /> }, 
-];
+    { key: <Image source={require("@/assets/images/search/charles-deluvio-K4mSJ7kc0As-unsplash 1.png")} /> }, 
+    { key: <Image source={require("@/assets/images/search/jesus-santos-ZBBKk2-Cgf8-unsplash 2.png")} /> }, 
+    { key: <Image source={require("@/assets/images/search/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash 2.png")} /> }, 
+    { key: <Image source={require("@/assets/images/search/Post 3.png")} /> }, 
+    { key: <Image source={require("@/assets/images/search/charles-deluvio-K4mSJ7kc0As-unsplash 1.png")} /> }, 
+    { key: <Image source={require("@/assets/images/search/jesus-santos-ZBBKk2-Cgf8-unsplash 2.png")} /> }, 
+    { key: <Image source={require("@/assets/images/search/charles-deluvio-K4mSJ7kc0As-unsplash 1.png")} /> }, 
+    { key: <Image source={require("@/assets/images/search/jesus-santos-ZBBKk2-Cgf8-unsplash 2.png")} /> }, 
+    { key: <Image source={require("@/assets/images/search/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash 2.png")} /> }, 
+    { key: <Image source={require("@/assets/images/search/Post 3.png")} /> }, 
+    { key: <Image source={require("@/assets/images/search/charles-deluvio-K4mSJ7kc0As-unsplash 1.png")} /> }, 
+    { key: <Image source={require("@/assets/images/search/jesus-santos-ZBBKk2-Cgf8-unsplash 2.png")} /> }, 
+  ];
 
 const formatData = (data, numColumns) => {
-  const numberOfFullRows = Math.floor(data.length / numColumns);
+const numberOfFullRows = Math.floor(data.length / numColumns);
 
-  let numberOfElementsLastRow = data.length - (numberOfFullRows * numColumns);
-  while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) {
+let numberOfElementsLastRow = data.length - (numberOfFullRows * numColumns);
+while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) {
     data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
     numberOfElementsLastRow++;
-  }
-
-  return data;
-};
+}
+  
+    return data;
+  };
 
 const numColumns = 3;
 
-export default class Autosearch extends React.Component {
+const Autosearch3 = () => {
 
-  renderItem = ({ item, index }) => {
+    const [isList, setIsList] = useState(false);
 
-    if (item.empty === true) {
-      return <View style={[styles.item, styles.itemInvisible]} />;
+    const GridView = ({item}) => {
+        return (
+            <View style={styles.item}>
+                <Text style={styles.itemText}>{item.key}</Text>
+            </View>
+        )
     }
 
-    return (
-      <View
-        style={styles.item}
-      >
-        <Text style={styles.itemText}>{item.key}</Text>
-      </View>
-    );
-
-  };
-
-  render() {
-
-    return (
-
-    <>
-      <FlatList
-        data={formatData(data, numColumns)}
-        style={styles.container}
-        renderItem={this.renderItem}
-        numColumns={numColumns}
-      />
-
-
-        {/* <FlatList
-        // data={Profiles}
-        keyExtractor={(item, index) => item.id}
-        renderItem={({item}) => (
-            <View>
-            <Image source={item.src} />
-            <Text>{item.name}</Text>
+    const ListView = ({item}) => {
+        return (
+            <View style={styles.listItem}>
+                <Text style={styles.listText}>{item.key}</Text>
             </View>
-        )}
-        /> */}
+        )
+    }
 
-    </>
 
-    );
 
-  }
+    return (
 
+        <>
+
+            <View style={styles.searchFilterContainer} >
+
+                {isList == true ? (
+
+                <Pressable onPress={()=>setIsList(false)}>
+                    <View>
+                    <Text><FilterSvgComponent  size={20} style={styles.filterIcon}/></Text>
+                    </View>
+                </Pressable>
+                ): (      
+
+                <Pressable onPress={()=>setIsList(true)}>
+                    <View>
+                    <Text><FilterSvgComponent  size={20} style={styles.filterIcon}/></Text>
+                    </View>
+                </Pressable>
+
+                )}
+            
+            </View>
+
+
+            {isList == true && (
+
+                <FlatList
+                    data={formatData(data, numColumns)}
+                    renderItem={GridView}
+                    numColumns={numColumns}
+                    vertical={false}
+                    keyExtractor={(item, index) =>index.toString()}    
+                />
+            )}
+
+            {isList == false && (
+
+                <FlatList
+                data={formatData(data, numColumns)}
+                renderItem={ListView}
+                vertical={false}
+                keyExtractor={(item, index) =>index.toString()}   
+                />
+            )}
+
+        </>
+
+    )
 }
+export default Autosearch3
 
 const styles = StyleSheet.create({
 
-  container: {
+    container: {
+      borderColor: "transparent",
+      borderStyle: "solid",
+      borderWidth:1
+    },
+  
+    item: {
+      borderColor: "transparent",
+      borderStyle: "solid",
+      borderWidth:1,
+      alignItems: 'center',
+      // justifyContent: 'center',
+      flex: 1,
+      width: Dimensions.get('window').width / numColumns, // approximate a square
+    },
+  
+    itemInvisible: {
+      backgroundColor: 'red',
+    },
+  
+    itemText: {
+      color: '#fff',
+      borderColor: "transparent",
+      borderStyle: "solid",
+      borderWidth:1,
+    },
+
+
+    listItem: {
+        borderColor: "transparent",
+        borderStyle: "solid",
+        borderWidth:1,
+        width: '100%',
+        alignItems: 'center',
+    },
+
+    listText: {
+        borderColor: "transparent",
+        borderStyle: "solid",
+        borderWidth:1,
+        // width: 500,
+        alignItems: 'center',
+    },
+
+    
+  searchFilterContainer:{
     borderColor: "transparent",
     borderStyle: "solid",
-    borderWidth:1
+    borderWidth: 1,
+    padding:2,
+    width: "10%",
+    backgroundColor:"white",
+    borderRadius: 100, 
+    borderTopRightRadius:100,
+    borderTopLeftRadius:100, 
+    borderBottomRightRadius:100,
+    borderBottomLeftRadius:100,
+    shadowColor: '#000',
+    shadowOffset: { width: 1, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+    alignItems: 'center', 
+    position:'absolute',
+    marginTop: '-14%',
+    marginLeft: '85%'
+    // transformOrigin: '20px',
+    // transformOrigin: 'bottom',
   },
 
-  item: {
-    borderColor: "transparent",
+  searchGrid: {
     borderStyle: "solid",
-    borderWidth:1,
-    alignItems: 'center',
-    // justifyContent: 'center',
-    flex: 1,
-    width: Dimensions.get('window').width / numColumns, // approximate a square
   },
 
-  itemInvisible: {
-    backgroundColor: 'red',
+  filterIcon: {
+    margin: "auto"
   },
-
-  itemText: {
-    color: '#fff',
-  },
-
-});
+  
+  });
