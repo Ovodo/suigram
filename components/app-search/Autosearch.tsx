@@ -31,7 +31,7 @@ while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) 
 
 const numColumns = 3;
 
-const Autosearch3 = () => {
+const Autosearch = () => {
 
     const [isList, setIsList] = useState(false);
 
@@ -102,7 +102,7 @@ const Autosearch3 = () => {
 
     )
 }
-export default Autosearch3
+export default Autosearch
 
 const styles = StyleSheet.create({
 
