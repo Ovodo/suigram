@@ -83,20 +83,18 @@ const Autosearch3 = () => {
 
                 <FlatList
                     data={formatData(data, numColumns)}
-                    renderItem={GridView}
-                    numColumns={numColumns}
-                    vertical={false}
-                    keyExtractor={(item, index) =>index.toString()}    
+                    renderItem={ListView}
+                    keyExtractor={(item, index) =>index.toString()}   
                 />
             )}
 
             {isList == false && (
 
                 <FlatList
-                data={formatData(data, numColumns)}
-                renderItem={ListView}
-                vertical={false}
-                keyExtractor={(item, index) =>index.toString()}   
+                    data={formatData(data, numColumns)}
+                    renderItem={GridView}
+                    numColumns={numColumns}
+                    keyExtractor={(item, index) =>index.toString()}    
                 />
             )}
 
@@ -109,30 +107,30 @@ export default Autosearch3
 const styles = StyleSheet.create({
 
     container: {
-      borderColor: "transparent",
-      borderStyle: "solid",
-      borderWidth:1
+        borderColor: "transparent",
+        borderStyle: "solid",
+        borderWidth:1
     },
-  
+
     item: {
-      borderColor: "transparent",
-      borderStyle: "solid",
-      borderWidth:1,
-      alignItems: 'center',
-      // justifyContent: 'center',
-      flex: 1,
-      width: Dimensions.get('window').width / numColumns, // approximate a square
+        borderColor: "transparent",
+        borderStyle: "solid",
+        borderWidth:1,
+        alignItems: 'center',
+        // justifyContent: 'center',
+        flex: 1,
+        width: Dimensions.get('window').width / numColumns, // approximate a square
     },
-  
+
     itemInvisible: {
-      backgroundColor: 'red',
+        backgroundColor: 'red',
     },
-  
+
     itemText: {
-      color: '#fff',
-      borderColor: "transparent",
-      borderStyle: "solid",
-      borderWidth:1,
+        color: '#fff',
+        borderColor: "transparent",
+        borderStyle: "solid",
+        borderWidth:1,
     },
 
 
@@ -152,37 +150,35 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
-    
-  searchFilterContainer:{
-    borderColor: "transparent",
-    borderStyle: "solid",
-    borderWidth: 1,
-    padding:2,
-    width: "10%",
-    backgroundColor:"white",
-    borderRadius: 100, 
-    borderTopRightRadius:100,
-    borderTopLeftRadius:100, 
-    borderBottomRightRadius:100,
-    borderBottomLeftRadius:100,
-    shadowColor: '#000',
-    shadowOffset: { width: 1, height: 2 },
-    shadowOpacity: 1,
-    shadowRadius: 4,
-    alignItems: 'center', 
-    position:'absolute',
-    marginTop: '-14%',
-    marginLeft: '85%'
-    // transformOrigin: '20px',
-    // transformOrigin: 'bottom',
-  },
+        
+    searchFilterContainer:{
+        borderColor: "transparent",
+        borderStyle: "solid",
+        borderWidth: 1,
+        padding:2,
+        width: "10%",
+        backgroundColor:"white",
+        borderRadius: 100, 
+        borderTopRightRadius:100,
+        borderTopLeftRadius:100, 
+        borderBottomRightRadius:100,
+        borderBottomLeftRadius:100,
+        shadowColor: '#000',
+        shadowOffset: { width: 1, height: 2 },
+        shadowOpacity: 1,
+        shadowRadius: 4,
+        alignItems: 'center', 
+        position:'absolute',
+        marginTop: '-14%',
+        marginLeft: '85%'
+    },
 
-  searchGrid: {
-    borderStyle: "solid",
-  },
+    searchGrid: {
+        borderStyle: "solid",
+    },
 
-  filterIcon: {
-    margin: "auto"
-  },
+    filterIcon: {
+        margin: "auto"
+    },
   
   });

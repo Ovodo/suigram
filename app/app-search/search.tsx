@@ -14,72 +14,72 @@ const API_ENDPOINT = "";
 const SearchScreen = () => {
 
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
-  const [fullData, setFullData] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [data, setData] = useState([]);
+  // const [error, setError] = useState(null);
+  // const [fullData, setFullData] = useState([]);
+  // const [searchQuery, setSearchQuery] = useState("");
 
-  useEffect(() => {
-    //setIsLoading to true
-    setIsLoading(false);
-    fetchData(API_ENDPOINT);
-  }, []);
+  // useEffect(() => {
+  //   //setIsLoading to true
+  //   setIsLoading(false);
+  //   fetchData(API_ENDPOINT);
+  // }, []);
 
-  const fetchData = async(url) => {
-    try {
-      const response = await fetch(url);
-      const json = await response.json();
-      setData(json.results);
+  // const fetchData = async(url) => {
+  //   try {
+  //     const response = await fetch(url);
+  //     const json = await response.json();
+  //     setData(json.results);
 
-      console.log(json.results);
-      setFullData(json.results);
-      setIsLoading(false);
-    }
+  //     console.log(json.results);
+  //     setFullData(json.results);
+  //     setIsLoading(false);
+  //   }
 
-    catch(error) {
+  //   catch(error) {
 
-      setError(error);
-      console.log(error);
-    }
-  }
+  //     setError(error);
+  //     console.log(error);
+  //   }
+  // }
 
-  const handleSearch = (query) => {
-    setSearchQuery(query);
-    const formattedQuery = query.toLowerCase();
-    const filteredData = filter(fullData, (user)=> {
-      return contains(user, formattedQuery)
-    });
-    setData(filteredData);
-  };
+  // const handleSearch = (query) => {
+  //   setSearchQuery(query);
+  //   const formattedQuery = query.toLowerCase();
+  //   const filteredData = filter(fullData, (user)=> {
+  //     return contains(user, formattedQuery)
+  //   });
+  //   setData(filteredData);
+  // };
 
-  const contains = ({name, email}, query) => {
-    const {first, last} = name;
+  // const contains = ({name, email}, query) => {
+  //   const {first, last} = name;
 
-    if(first.includes(query) || last.includes(query) || email.includes(query)) {
-      return true;
-    }
+  //   if(first.includes(query) || last.includes(query) || email.includes(query)) {
+  //     return true;
+  //   }
 
-    else {
-      return false;
-    }
-  }
+  //   else {
+  //     return false;
+  //   }
+  // }
 
-  if(isLoading) {
-    return (
-      <View style={{flex:1, justifyContent: "center", alignItems:"center"}}> 
-        <ActivityIndicator size={"large"} color="#5500dc" />
-      </View>
-    )
-  }
+  // if(isLoading) {
+  //   return (
+  //     <View style={{flex:1, justifyContent: "center", alignItems:"center"}}> 
+  //       <ActivityIndicator size={"large"} color="#5500dc" />
+  //     </View>
+  //   )
+  // }
 
-  if(error) {
-    return (
-      <View style={{flex:1, justifyContent: "center", alignItems:"center"}}> 
-        <Text> Error in fetching data, please check your internet connection.</Text>
-      </View>
-    )
-  }
+  // if(error) {
+  //   return (
+  //     <View style={{flex:1, justifyContent: "center", alignItems:"center"}}> 
+  //       <Text> Error in fetching data, please check your internet connection or try again.</Text>
+  //     </View>
+  //   )
+  // }
 
 
   return (
@@ -107,10 +107,10 @@ const SearchScreen = () => {
                       style={styles.searchBar}
                       autoCapitalize="none"    
                       autoCorrect={false} 
-                      value={searchQuery}
-                      onChangeText={(query) => handleSearch(query)}   
-                      onFocus={this.handleFocus}
-                      onBlur={this.handleBlur}
+                      // value={searchQuery}
+                      // onChangeText={(query) => handleSearch(query)}   
+                      // onFocus={this.handleFocus}
+                      // onBlur={this.handleBlur}
                       // style={[//Your Styles, {
                       //     borderBottomColor: this.state.isFocused
                       //         ? 'black'
@@ -184,10 +184,6 @@ const styles = StyleSheet.create({
     outlineColor: "transparent",
     outlineStyle: "solid",
     outlineWidth: 1,
-    // input:focus {
-      // outline: "none",
-    // }
-    
   },
 
   searchAndFilterContainer: {
