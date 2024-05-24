@@ -18,7 +18,7 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "(tabs)",
+  initialRouteName: "main",
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -29,6 +29,7 @@ export default function RootLayout() {
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
     SandBold: require("../assets/fonts/sand/static/Quicksand-Bold.ttf"),
     SandRegs: require("../assets/fonts/sand/static/Quicksand-Regular.ttf"),
+    SandSemi: require("../assets/fonts/sand/static/Quicksand-SemiBold.ttf"),
     ...FontAwesome.font,
   });
 
@@ -55,8 +56,8 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack screenOptions={{ headerShown: false }} initialRouteName='main'>
-        {/* <Stack.Screen name='(tabs)' options={{ headerShown: false }} /> */}
+      <Stack screenOptions={{ headerShown: false }} initialRouteName='(tabs)'>
+        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
         <Stack.Screen name='main' options={{ headerShown: false }} />
         {/* <Stack.Screen name='modal' options={{ presentation: "modal" }} /> */}
       </Stack>
