@@ -1,35 +1,65 @@
-import { StyleSheet } from "react-native";
+import React from "react";
+import { FlatList, View, ScrollView, StyleSheet } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import SocialMediaCard from "@/components/SocialMediaCard";
+import NavBar from "@/components/NavBar";
+import { postingData, storyData } from "@/constants/data";
+import StoryCard from "@/components/StoryCard";
 
-import EditScreenInfo from "@/components/EditScreenInfo";
-import { Text, View } from "@/components/Themed";
+const Main = () => {
+  const handlePress = () => {
+    // Handle press action
+  };
 
-export default function TabOneScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Table</Text>
-      <View
-        style={styles.separator}
-        lightColor='#eee'
-        darkColor='rgba(255,255,255,0.1)'
-      />
-      <EditScreenInfo path='app/(tabs)/index.tsx' />
-    </View>
+    <SafeAreaProvider>
+      <ScrollView style={styles.container}>
+        <NavBar />
+
+        <FlatList
+          data={storyData}
+          style={styles.story}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => (
+            <StoryCard
+              onPress={handlePress}
+              username={""}
+              imageProfile={item.imageURL}
+            />
+          )}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        />
+
+        <View>
+          {postingData.map((post, index) => (
+            <SocialMediaCard
+              key={index.toString()}
+              username={"John Doe"}
+              imageProfile="../assets/images/post_1.png"
+              imagePost="../assets/images/post_2.png"
+              react="70"
+              share="800"
+              like="70"
+              unlike="1"
+              onPress={handlePress}
+            />
+          ))}
+        </View>
+      </ScrollView>
+    </SafeAreaProvider>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    display: "flex",
+    paddingBottom: 18,
+    // marginHorizontal: 20,
   },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
+  story: {
+    marginHorizontal: 20,
   },
 });
+
+export default Main;

@@ -18,3 +18,137 @@ export const onBoardingData = [
     desc: "With SuiGram, you'll always be up-to-date with the latest memes and viral sensations.",
   },
 ];
+
+
+
+export const postingData = [
+  {
+    id: 1,
+    imageProfile: require("../assets/images/meme_1.png"),
+    username: "SuiGram",
+    imagePost: "",
+    react: "",
+    share: "",
+    like: "",
+    unlike: "",
+  },
+  {
+    id: 2,
+    image: require("../assets/images/meme_2.png"),
+    username: "SuiGram",
+    imagePost: "",
+    react: "",
+    share: "",
+    like: "",
+    unlike: "",
+  },
+  {
+    id: 3,
+    image: require("../assets/images/meme_3.png"),
+    username: "SuiGram",
+    imagePost: "",
+    react: "",
+    share: "",
+    like: "",
+    unlike: "",
+  },
+];
+
+
+export const notificationData = [
+  {
+    id: 1,
+    imageURL: require("../assets/images/meme_1.png"),
+    text: "SuiGram",
+  },
+  {
+    id: 2,
+    imageURL: require("../assets/images/meme_2.png"),
+    text: "SuiGram",
+  },
+  {
+    id: 3,
+    imageURL: require("../assets/images/meme_3.png"),
+    text: "SuiGram",
+  },
+  {
+    id: 4,
+    imageURL: require("../assets/images/meme_2.png"),
+    text: "SuiGram",
+  },
+  {
+    id: 5,
+    imageURL: require("../assets/images/meme_3.png"),
+    text: "SuiGram",
+  },
+  {
+    id: 6,
+    imageURL: require("../assets/images/meme_2.png"),
+    text: "SuiGram",
+  },
+  {
+    id: 7,
+    imageURL: require("../assets/images/meme_3.png"),
+    text: "SuiGram",
+  },
+  {
+    id: 8,
+    imageURL: require("../assets/images/meme_2.png"),
+    text: "SuiGram",
+  },
+  {
+    id: 9,
+    imageURL: require("../assets/images/meme_3.png"),
+    text: "SuiGram",
+  },
+  {
+    id: 10,
+    imageURL: require("../assets/images/meme_2.png"),
+    text: "SuiGram",
+  },
+];
+
+
+
+export const storyData = [
+  {
+    id: 1,
+    imageURL: require("../assets/images/meme_1.png"),
+  },
+  {
+    id: 2,
+    imageURL: require("../assets/images/meme_2.png"),
+  },
+  {
+    id: 3,
+    imageURL: require("../assets/images/meme_3.png"),
+  },
+  {
+    id: 4,
+    imageURL: require("../assets/images/meme_2.png"),
+  },
+  {
+    id: 5,
+    imageURL: require("../assets/images/meme_3.png"),
+  },
+  {
+    id: 6,
+    imageURL: require("../assets/images/meme_2.png"),
+  },
+  {
+    id: 7,
+    imageURL: require("../assets/images/meme_3.png"),
+  },
+  {
+    id: 8,
+    imageURL: require("../assets/images/meme_2.png"),
+  },
+  {
+    id: 9,
+    imageURL: require("../assets/images/meme_3.png"),
+  },
+  {
+    id: 10,
+    imageURL: require("../assets/images/meme_2.png"),
+  },
+];
