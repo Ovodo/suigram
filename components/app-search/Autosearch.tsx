@@ -52,8 +52,8 @@ const Autosearch = () => {
         return (
             <View style={styles.listItem}>
                 <View style={styles.itemCategoryPhotos}><MutiGallaryIcon/></View>
-                    {item.key}
-                <View style={styles.itemCategoryGifContainer}><Text style={styles.itemCategoryGif}>GIF</Text></View>
+                {item.key}
+                <Text style={styles.itemCategoryGif}>GIF</Text>
             </View>
         )
     }
@@ -168,21 +168,16 @@ const styles = StyleSheet.create({
         marginTop: 9
     },
 
-    itemCategoryGifContainer: {
-        borderStyle: "solid",
-        borderWidth: 1,
-        borderColor: "red",
-    },
 
     itemCategoryGif: {
         borderStyle: "solid",
         borderWidth: 1,
-        borderColor: "gold",
+        borderColor: "white",
         backgroundColor: "transparent",
         position: "absolute",
         zIndex: 1,
-        marginRight: 80,
-        marginTop: 10,
+        marginLeft: -50,
+        marginTop: -30,
         borderRadius: 50,
         color: "white",
         fontSize: 7,
