@@ -81,8 +81,8 @@ export const styles = StyleSheet.create({
     fontSize: actuatedNormalize(35),
   },
   text_md: {
-    fontFamily: "Montserrat_600SemiBold",
-    fontSize: actuatedNormalize(15),
+    fontFamily: "SandBold",
+    fontSize: actuatedNormalize(16),
   },
   text_md2: {
     fontFamily: "Montserrat_500Medium",

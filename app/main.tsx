@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View, Animated } from "react-native";
+import { FlatList, StyleSheet, View, Animated, Platform } from "react-native";
 import { useState, useRef } from "react";
 import { styles } from "@/style/style";
 import { LinearGradient } from "expo-linear-gradient";
@@ -9,6 +9,8 @@ import RoundBtn from "@/components/RoundBtn";
 import { onBoardingData } from "@/constants/data";
 import OnBoardingItem from "@/components/OnBoardingItem";
 import Paginator from "@/components/Paginator";
+import { StatusBar } from "expo-status-bar";
+import GetStarted from "@/components/action/GetStarted";
 
 const Main = () => {
   const [currenIndex, setCurrentIndex] = useState(0);
@@ -19,13 +21,23 @@ const Main = () => {
     }
   ).current;
   const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current;
-  const slideRef = useRef(null);
+  const slideRef = useRef<FlatList>(null);
+
+  const scrollTo = () => {
+    if (currenIndex < onBoardingData.length - 1) {
+      if (slideRef.current) {
+        slideRef.current.scrollToIndex({ index: currenIndex + 1 });
+      }
+    } else {
+      console.log("last item");
+    }
+  };
   return (
     <SafeAreaProvider>
       <SafeAreaView className='flex-1'>
         <View className='flex-1'>
           <Background>
-            <View className='w-full  absolute top-[5%] h-[79%] '>
+            <View className='w-full absolute top-[5%] h-[79%] '>
               <FlatList
                 showsHorizontalScrollIndicator={false}
                 pagingEnabled
@@ -45,10 +57,22 @@ const Main = () => {
               />
             </View>
             <Paginator scrollX={scrollX} data={onBoardingData} />
-            <View className='absolute bottom-[8%]'>
-              <RoundBtn />
+            <View className='absolute self-center bottom-[5%]'>
+              {currenIndex < 3 ? (
+                <RoundBtn
+                  scrollTo={scrollTo}
+                  percentage={(currenIndex + 1) * (100 / onBoardingData.length)}
+                  press={setCurrentIndex}
+                />
+              ) : (
+                <GetStarted />
+              )}
             </View>
           </Background>
+          <StatusBar
+            backgroundColor='#112022'
+            style={Platform.OS === "ios" ? "light" : "auto"}
+          />
         </View>
       </SafeAreaView>
     </SafeAreaProvider>

@@ -17,4 +17,10 @@ export const onBoardingData = [
     title: "Stay Ahead of the Trend",
     desc: "With SuiGram, you'll always be up-to-date with the latest memes and viral sensations.",
   },
+  {
+    id: 4,
+    image: require("../assets/images/meme_2.png"),
+    title: "Connect with Zk Login",
+    desc: "Enhance your SuiGram experience by connecting with google and accessing your unique wallet address.",
+  },
 ];

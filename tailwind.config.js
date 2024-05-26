@@ -11,6 +11,7 @@ module.exports = {
         app_milk: "#EFF4C3",
         app_dark: "#112022",
         app_violet: "#A01CFE",
+        app_green: "#81F495",
       },
     },
   },
