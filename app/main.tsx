@@ -5,7 +5,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import Background from "@/components/Background";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { Text } from "@/components/Themed";
-import RoundBtn from "@/components/RoundBtn";
+import RoundBtn from "@/components/action/RoundBtn";
 import { onBoardingData } from "@/constants/data";
 import OnBoardingItem from "@/components/OnBoardingItem";
 import Paginator from "@/components/Paginator";
@@ -62,7 +62,6 @@ const Main = () => {
                 <RoundBtn
                   scrollTo={scrollTo}
                   percentage={(currenIndex + 1) * (100 / onBoardingData.length)}
-                  press={setCurrentIndex}
                 />
               ) : (
                 <GetStarted />

@@ -15,7 +15,7 @@ const GetStarted = () => {
         <Google width={0.05 * SCREEN_WIDTH} height={0.05 * SCREEN_WIDTH} />
         <Text
           style={styles.text_md}
-          className='text-app_dark relative top-[0px] ml-[0.6vw]'
+          className='text-app_dark relative top-[.2px] ml-[0.6vw]'
         >
           et Started
         </Text>

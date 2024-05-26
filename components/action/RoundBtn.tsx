@@ -8,16 +8,15 @@ import Animated, {
   withTiming,
   withRepeat,
 } from "react-native-reanimated";
-import Svd, { G, Circle, Svg } from "react-native-svg";
+import Svg, { G, Circle } from "react-native-svg";
 import { SCREEN_WIDTH } from "@/style/stylesheet";
+import Arrow from "../../assets/icons/arr.svg";
 
 const RoundBtn = ({
   percentage,
-  press,
   scrollTo,
 }: {
   percentage: any;
-  press: React.Dispatch<React.SetStateAction<number>>;
   scrollTo: any;
 }) => {
   const size = 0.24 * SCREEN_WIDTH;
@@ -64,20 +63,14 @@ const RoundBtn = ({
   return (
     <TouchableOpacity
       activeOpacity={0.5}
-      //   style={styles.btn}
       onPress={scrollTo}
-      className='w-[64px] h-[64px]  bg-transparent relative  border-app_green flex items-center justify-center  rounded-full'
+      className='w-[64px] h-[64px] border-2  bg-transparent relative  border-app_green flex items-center justify-center  rounded-full'
     >
       <Animated.View
         style={animatedStyles}
         className='w-[15vw] h-[15vw] absolute  animate-pulse flex items-center justify-center bg-app_green rounded-full'
       >
-        {/* <Text className='text-app_dark text-2xl'> &rarr;</Text> */}
-        <Image
-          tintColor={"#112022"}
-          // className='w-[7vw] h-[7vw]'
-          source={require("../assets/icons/arrow.png")}
-        />
+        <Arrow width={24} height={24} />
       </Animated.View>
       <Svg width={size} height={size}>
         <G rotation={"-90"} origin={center}>
