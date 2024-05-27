@@ -15,7 +15,6 @@ const Main = () => {
     <SafeAreaProvider>
       <ScrollView style={styles.container}>
         <NavBar />
-
         <FlatList
           data={storyData}
           style={styles.story}
@@ -36,8 +35,8 @@ const Main = () => {
             <SocialMediaCard
               key={index.toString()}
               username={"John Doe"}
-              imageProfile="../assets/images/post_1.png"
-              imagePost="../assets/images/post_2.png"
+              imageProfile={post.imageProfile}
+              imagePost={post.imagePost}
               react="70"
               share="800"
               like="70"
@@ -53,9 +52,7 @@ const Main = () => {
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
     paddingBottom: 18,
-    // marginHorizontal: 20,
   },
   story: {
     marginHorizontal: 20,
