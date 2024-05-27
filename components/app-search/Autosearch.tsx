@@ -173,7 +173,6 @@ const styles = StyleSheet.create({
         borderStyle: "solid",
         borderWidth: 1,
         borderColor: "white",
-        backgroundColor: "transparent",
         position: "absolute",
         zIndex: 1,
         marginLeft: -50,
