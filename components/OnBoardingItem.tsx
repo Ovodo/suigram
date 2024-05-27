@@ -12,10 +12,12 @@ type OnBoard = {
 const OnBoardingItem = ({ item }: { item: OnBoard }) => {
   return (
     <View className=' w-screen  flex justify-between items-center'>
-      <Image source={item.image} />
-      <View className='flex w-screen mb-[10%]  gap-[10%] items-center'>
-        <Text style={styles.title}>{item.title}</Text>
-        <Text className='w-[70%]   text-center' style={styles.desc}>
+      <Image className='h-[50vh]' source={item.image} />
+      <View className='flex w-full mb-[5%]  space-y-[30vh] items-center'>
+        <Text className='' style={styles.title}>
+          {item.title}
+        </Text>
+        <Text className='w-[70%]  text-center' style={styles.desc}>
           {item.desc}
         </Text>
       </View>

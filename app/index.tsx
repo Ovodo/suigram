@@ -1,5 +1,12 @@
-import { FlatList, StyleSheet, View, Animated, Platform } from "react-native";
-import { useState, useRef } from "react";
+import {
+  FlatList,
+  StyleSheet,
+  View,
+  Animated,
+  Platform,
+  NativeModules,
+} from "react-native";
+import { useState, useRef, useEffect } from "react";
 import { styles } from "@/style/style";
 import { LinearGradient } from "expo-linear-gradient";
 import Background from "@/components/Background";
@@ -12,7 +19,7 @@ import Paginator from "@/components/Paginator";
 import { StatusBar } from "expo-status-bar";
 import GetStarted from "@/components/action/GetStarted";
 
-const Main = () => {
+const Index = () => {
   const [currenIndex, setCurrentIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
   const viewableItemsChanged = useRef(
@@ -32,6 +39,7 @@ const Main = () => {
       console.log("last item");
     }
   };
+
   return (
     <SafeAreaProvider>
       <SafeAreaView className='flex-1'>
@@ -78,4 +86,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Index;
