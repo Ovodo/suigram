@@ -94,7 +94,7 @@ const SocialMediaCard: React.FC<SocialMediaCardProps> = ({
 const styles = StyleSheet.create({
   gradientBorder: {
     borderRadius: 30,
-    marginBottom: 30,
+    marginBottom: 10,
     margin: 15,
     padding: 2,
   },
