@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View, Text, FlatList, Pressable, Dimensions, Image, StyleSheet } from 'react-native'
+import { View, Text, FlatList, Pressable, Dimensions, Image, StyleSheet, ScrollView } from 'react-native'
 import FilterIcon from '@/assets/icons/filter.svg';
 import MutiGallaryIcon from "@/assets/icons/mutigallaryicon.svg";
 
