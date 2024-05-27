@@ -8,6 +8,7 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
 
 import { useColorScheme } from "@/components/useColorScheme";
 export {
@@ -17,7 +18,7 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "main",
+  initialRouteName: "index",
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -42,6 +43,15 @@ export default function RootLayout() {
       SplashScreen.hideAsync();
     }
   }, [loaded]);
+  const configGoogleSignIn = () => {
+    GoogleSignin.configure({
+      webClientId:
+        "39748502508-e55qmc98brq5r523csnn1eq2ssduabsm.apps.googleusercontent.com",
+    });
+  };
+  useEffect(() => {
+    configGoogleSignIn(); // will execute everytime the component mounts
+  }, []);
 
   if (!loaded) {
     return null;
@@ -55,9 +65,9 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack screenOptions={{ headerShown: false }} initialRouteName='(tabs)'>
+      <Stack screenOptions={{ headerShown: false }} initialRouteName='index'>
         <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-        <Stack.Screen name='main' options={{ headerShown: false }} />
+        <Stack.Screen name='index' options={{ headerShown: false }} />
         {/* <Stack.Screen name='modal' options={{ presentation: "modal" }} /> */}
       </Stack>
     </ThemeProvider>

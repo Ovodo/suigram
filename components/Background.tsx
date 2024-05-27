@@ -1,17 +1,13 @@
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 // import { Text, View } from "@/components/Themed";
-import { ImageBackground, Text, View } from "react-native";
+import { ImageBackground, Text } from "react-native";
+import { View } from "./Themed";
 
 const Background = ({ children }: { children: React.ReactNode }) => {
   return (
     <View className='relative items-center flex-1'>
-      <ImageBackground
-        // style={{resizeMode:"cover"}}
-        className='w-full bg-cover  h-full'
-        source={require("../assets/images/bg_large.png")}
-      >
-        {/* <LinearGradient
+      {/* <LinearGradient
         // Background Linear Gradient
         colors={["#9D1AFE", "#BA2FFE", "#E750FF", "#FFFFFF"]}
         locations={[0, 0.25, 0.5, 1]}
@@ -19,9 +15,8 @@ const Background = ({ children }: { children: React.ReactNode }) => {
         end={{ x: 1, y: 1 }}
         className='flex-1 relative flex-col justify-center items-center '
         > */}
-        {children}
-        {/* </LinearGradient> */}
-      </ImageBackground>
+      {children}
+      {/* </LinearGradient> */}
     </View>
   );
 };
