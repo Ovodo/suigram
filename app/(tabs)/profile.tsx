@@ -266,9 +266,7 @@ const ProfileScreen = () => {
         </View>
 
         <View>
-            <>
-              <TabScreen />
-            </>
+             <TabScreen />
         </View>
 
         </ScrollView>
@@ -284,7 +282,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // marginTop: 40,
+    marginTop: 70
   },
 
   userProfileOneContainer: {
@@ -299,12 +297,7 @@ const styles = StyleSheet.create({
   userNameContainer: {
     alignItems: 'flex-start', 
   },
-  
-  userImgcontainer: {
-    // borderColor:'none',
-    // marginLeft:-10,
 
-  },
 
   userImg: {
     height: 83,
@@ -317,7 +310,7 @@ const styles = StyleSheet.create({
 
   userName: {
     fontSize: 18,
-    fontWeight: 600,
+    fontWeight: 'bolder',
     marginTop: 10,
     marginBottom: 10,
     marginLeft:10,
@@ -327,7 +320,7 @@ const styles = StyleSheet.create({
 
   aboutUser: {
     fontSize: 13,
-    fontWeight: '600',
+    fontWeight: 'bolder',
     color: '#666',
     textAlign: 'center',
     marginBottom: 10,
