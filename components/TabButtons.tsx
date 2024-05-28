@@ -110,10 +110,6 @@ const styles = StyleSheet.create({
     tabBtnCont1: {
         flexDirection: "row",
         flex: 1,
-        // paddingVertical: 20,
-        // borderStyle: "solid",
-        // borderColor: "black",
-        // borderWidth: 2,
         justifyContent: "center",
 
     },
