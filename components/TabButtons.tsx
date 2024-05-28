@@ -22,7 +22,7 @@ const TabButtons = ({buttons, selectedTab, setSelectedTab}: TabButtonsProps) => 
 
     const tabPositionX = useSharedValue(0);
 
-    const onTabbarLayout = (e:LayoutChangeEvent) => {
+    const onTabLayout = (e:LayoutChangeEvent) => {
         setDimensions({
             height: e.nativeEvent.layout.height,
             width: e.nativeEvent.layout.width,
@@ -48,7 +48,7 @@ const TabButtons = ({buttons, selectedTab, setSelectedTab}: TabButtonsProps) => 
   return (
 
     <>
-        <View style={styles.tabBtnCont} accessibilityRole="tabbar">
+        <View style={styles.tabBtnCont} accessibilityRole="tab">
             {/* <Text>Tab Button</Text> */}
         </View>
 
@@ -63,7 +63,7 @@ const TabButtons = ({buttons, selectedTab, setSelectedTab}: TabButtonsProps) => 
             ]}
         />
 
-        <View onLayout={onTabbarLayout} style={styles.tabBtnCont1}>
+        <View onLayout={onTabLayout} style={styles.tabBtnCont1}>
             {buttons.map((button, index) => {
 
                 const color = selectedTab === index ? "#c333cc" : "transparent";
@@ -110,10 +110,6 @@ const styles = StyleSheet.create({
     tabBtnCont1: {
         flexDirection: "row",
         flex: 1,
-        // paddingVertical: 20,
-        // borderStyle: "solid",
-        // borderColor: "black",
-        // borderWidth: 2,
         justifyContent: "center",
 
     },
@@ -122,6 +118,7 @@ const styles = StyleSheet.create({
         // borderWidth: 5,
         paddingLeft: 15,
         paddingRight: 15,
+        textDecorationLine: "none",
     }
 
 

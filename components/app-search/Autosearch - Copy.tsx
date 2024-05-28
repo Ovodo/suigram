@@ -36,20 +36,12 @@ const Autosearch = () => {
 
     const [isList, setIsList] = useState(false);
 
-
+    
 
     const GridView = ({item}) => {
         return (
             <View style={styles.item}>
-                <View style={[styles.itemCategoryPhotos, {transform: [{translateX: 40}]},]}>
-
-                    <MutiGallaryIcon/>
-
-                </View>
-
-{/*                style={[styles.box,{transform: [{scale: 2}], },]}*/}
-
-
+                <View style={styles.itemCategoryPhotos}><MutiGallaryIcon/></View>
                     {item.key}
                 <View style={styles.itemCategoryGifContainer}><Text style={styles.itemCategoryGif}>GIF</Text></View>
             </View>
@@ -59,7 +51,7 @@ const Autosearch = () => {
     const ListView = ({item}) => {
         return (
             <View style={styles.listItem}>
-                <View style={[styles.itemCategoryPhotos, {transform: [{translateX: 40}]},]}><MutiGallaryIcon/></View>
+                <View style={styles.itemCategoryPhotos}><MutiGallaryIcon/></View>
                 {item.key}
                 <Text style={styles.itemCategoryGif}>GIF</Text>
             </View>
@@ -70,9 +62,9 @@ const Autosearch = () => {
 
     return (
 
-        <>
+        <View>
 
-            <View style={styles.searchFilterContainer} >
+            {/*<View style={styles.searchFilterContainer} >
 
                 {isList == true ? (
 
@@ -81,7 +73,7 @@ const Autosearch = () => {
                         <FilterIcon  size={20} style={styles.filterIcon}/>
                     </View>
                 </Pressable>
-                ): (
+                ): (      
 
                 <Pressable onPress={()=>setIsList(true)}>
                     <View>
@@ -90,8 +82,8 @@ const Autosearch = () => {
                 </Pressable>
 
                 )}
-
-            </View>
+            
+            </View> */}
 
 
             {isList == true && (
@@ -109,11 +101,11 @@ const Autosearch = () => {
                     data={formatData(data, numColumns)}
                     renderItem={GridView}
                     numColumns={numColumns}
-                    keyExtractor={(item, index) =>index.toString()}
+                    keyExtractor={(item, index) =>index.toString()}    
                 />
             )}
 
-        </>
+        </View>
 
     )
 }
@@ -124,8 +116,7 @@ const styles = StyleSheet.create({
     container: {
         borderColor: "transparent",
         borderStyle: "solid",
-        borderWidth:1,
-        marginTop: 80,
+        borderWidth:1
     },
 
     item: {
@@ -133,7 +124,6 @@ const styles = StyleSheet.create({
         borderStyle: "solid",
         borderWidth:1,
         alignItems: 'center',
-        // justifyContent: 'center',
         flex: 1,
         width: Dimensions.get('window').width / numColumns, // approximate a square
     },
@@ -162,19 +152,18 @@ const styles = StyleSheet.create({
         borderColor: "transparent",
         borderStyle: "solid",
         borderWidth:1,
-        // width: 500,
         alignItems: 'center',
     },
 
     itemCategoryPhotos: {
         borderStyle: "solid",
         borderWidth: 1,
-        borderColor: "transparent",
+        borderColor: "transparent", 
         backgroundColor: "transparent",
         position: "absolute",
         zIndex: 1,
         marginLeft: 80,
-        marginTop: 9,
+        marginTop: 9
     },
 
 
@@ -193,13 +182,6 @@ const styles = StyleSheet.create({
         paddingRight: 8,
         paddingTop: 2,
         paddingBottom: 2,
-
-        // padding: 2px 8px 2px 8px;
-        // gap: 10px;
-        // border-radius: 8px 0px 0px 0px;
-        // border: 0.5px 0px 0px 0px;
-        // opacity: 0px;
-
     },
 
         
@@ -208,8 +190,7 @@ const styles = StyleSheet.create({
         borderStyle: "solid",
         borderWidth: 1,
         padding:2,
-        width: "auto",
-        height: 25,
+        width: "10%",
         backgroundColor:"white",
         borderRadius: 100, 
         borderTopRightRadius:100,
@@ -220,10 +201,9 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 1, height: 2 },
         shadowOpacity: 1,
         shadowRadius: 4,
-        elevation: 10,
         alignItems: 'center', 
         position:'absolute',
-        marginTop: '-13%',
+        marginTop: '-14%',
         marginLeft: '85%'
     },
 

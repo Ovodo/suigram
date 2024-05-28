@@ -13,7 +13,7 @@ import Autosearch from '@/components/app-search/Autosearch';
 import SearchIcon from "@/assets/icons/explore.svg";
 
 //api link 
-const API_ENDPOINT = "";
+const API_ENDPOINT = "https://suigram-image-uploader.onrender.com/api/upload-img";
 
 const SearchScreen = () => {
 
@@ -91,7 +91,7 @@ const SearchScreen = () => {
 
        <ScrollView
         style={styles.container}
-        showsVerticalScrollIndicator={false}>
+        showsVerticalScrollIndicator={true}>
 
 
           <View style={styles.searchBarContainer}>
@@ -105,7 +105,7 @@ const SearchScreen = () => {
                   <View style={styles.searchBarTextContainer}>
                     <TextInput 
                       placeholder='Search' 
-                      clearButtonMode="always" 
+                      clearButtonMode="always"
                       style={styles.searchBar}
                       autoCapitalize="none"    
                       autoCorrect={false} 
@@ -123,7 +123,7 @@ const SearchScreen = () => {
                   </View>
                   
                    <View style={styles.searchAndFilterContainerIcon}>
-                    <SearchIcon size={20} style={styles.searchIcon}/>
+                    <SearchIcon size={20} style={[styles.searchIcon, {marginRight:10}]}/>
                    </View>
                   
 
@@ -139,9 +139,7 @@ const SearchScreen = () => {
           </View>
 
           <View id='search-items-container' style={styles.searchGrid}>         
-              <>
-                <Autosearch/>
-              </>
+              <Autosearch/>
           </View>
 
         </ScrollView>
@@ -158,7 +156,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    marginTop: 40,
+    marginTop: 50,
   },
   
   searchBarContainer: {
@@ -179,10 +177,6 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 0,
     borderTopRightRadius: 0,
     outlineColor: "transparent",
-
-    // web: {
-    //   outlineColor:"transparent"
-    // }
   },
 
   searchAndFilterContainer: {
@@ -195,7 +189,7 @@ const styles = StyleSheet.create({
   },
 
   searchContainer: {
-    borderColor: "#FFFFFF",
+    borderColor: "transparent",
     borderStyle: "solid",
     borderWidth: 1,
     backgroundColor:"#FFFFFF",
@@ -207,7 +201,8 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: { width: 1, height: 2 },
     shadowOpacity: 1,
-    shadowRadius: 4,
+    shadowRadius: 5,
+    elevation: 10,
   },
 
   searchBarTextContainer: {
@@ -227,7 +222,6 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderWidth: 1,
     justifyContent:"center",
-    marginRight:30,
   },
 
   searchIcon: {
@@ -246,10 +240,10 @@ const styles = StyleSheet.create({
     borderTopLeftRadius:100, 
     borderBottomRightRadius:100,
     borderBottomLeftRadius:100,
-    shadowColor: '#000',
-    shadowOffset: { width: 1, height: 2 },
-    shadowOpacity: 1,
-    shadowRadius: 4,
+//     shadowColor: '#000',
+//     shadowOffset: { width: 1, height: 2 },
+//     shadowOpacity: 1,
+//     shadowRadius: 4,
     justifyContent:"center",
   },
 

@@ -56,13 +56,7 @@ export default class Gifs extends React.Component {
 
 const styles = StyleSheet.create({
 
-  container: {
-    borderStyle: "solid",
-    borderColor: "transparent",
-    borderWidth: 10,
-    flex: 1,
-    marginTop: -170,
-  },
+
 
   item: {
     backgroundColor: '#4D243D',
