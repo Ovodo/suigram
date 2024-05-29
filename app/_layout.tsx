@@ -18,7 +18,7 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "main",
+  initialRouteName: "index",
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -56,9 +56,9 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack screenOptions={{ headerShown: false }} initialRouteName='(tabs)'>
+      <Stack screenOptions={{ headerShown: false }} initialRouteName='index'>
         <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-        <Stack.Screen name='main' options={{ headerShown: false }} />
+        <Stack.Screen name='index' options={{ headerShown: false }} />
         {/* <Stack.Screen name='modal' options={{ presentation: "modal" }} /> */}
       </Stack>
     </ThemeProvider>

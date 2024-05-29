@@ -14,7 +14,7 @@ export default function TabOneScreen() {
         darkColor='rgba(255,255,255,0.1)'
       />
       {/* <EditScreenInfo path='app/(tabs)/index.tsx' /> */}
-      <Link href='/main'>
+      <Link href='/index'>
         <Text>Go to home screen!</Text>
       </Link>
     </View>
