@@ -39,7 +39,8 @@
             "DEFAULT"
           ]
         }
-      ]
+      ],
+      "package": "app.tricode.suigram"
     },
     "web": {
       "bundler": "metro",
