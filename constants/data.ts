@@ -19,8 +19,6 @@ export const onBoardingData = [
   },
 ];
 
-
-
 export const postingData = [
   {
     id: 1,
@@ -31,6 +29,14 @@ export const postingData = [
     share: "",
     like: "",
     unlike: "",
+    tags: [
+      "#funny",
+      "#crypto",
+      "#memcoins",
+      "#crying",
+      "#hardlife",
+      "invicible",
+    ],
   },
   {
     id: 2,
@@ -41,6 +47,14 @@ export const postingData = [
     share: "",
     like: "",
     unlike: "",
+    tags: [
+      "#funny",
+      "#crypto",
+      "#memcoins",
+      "#crying",
+      "#hardlife",
+      "invicible",
+    ],
   },
   {
     id: 3,
@@ -51,64 +65,87 @@ export const postingData = [
     share: "",
     like: "",
     unlike: "",
+    tags: [
+      "#funny",
+      "#crypto",
+      "#memcoins",
+      "#crying",
+      "#hardlife",
+      "invicible",
+    ],
   },
-];
-
+  {
+    id: 3,
+    imageProfile: require("../assets/images/meme_3.png"),
+    username: "SuiGram",
+    imagePost: require("../assets/images/pepe.png"),
+    react: "",
+    share: "",
+    like: "",
+    unlike: "",
+    tags: [
+      "#funny",
+      "#crypto",
+      "#memcoins",
+      "#crying",
+      "#hardlife",
+      "invicible",
+    ],
+  },
+].reverse();
 
 export const notificationData = [
   {
     id: 1,
     imageURL: require("../assets/images/meme_1.png"),
-    text: "SuiGram",
+    notification: "liked",
   },
   {
     id: 2,
     imageURL: require("../assets/images/meme_2.png"),
-    text: "SuiGram",
+    notification: "liked",
   },
   {
     id: 3,
     imageURL: require("../assets/images/meme_3.png"),
-    text: "SuiGram",
+    notification: "liked",
   },
   {
     id: 4,
     imageURL: require("../assets/images/meme_2.png"),
-    text: "SuiGram",
+    notification: "liked",
   },
   {
     id: 5,
     imageURL: require("../assets/images/meme_3.png"),
-    text: "SuiGram",
+    notification: "liked",
   },
   {
     id: 6,
     imageURL: require("../assets/images/meme_2.png"),
-    text: "SuiGram",
+    notification: "shared",
   },
   {
     id: 7,
     imageURL: require("../assets/images/meme_3.png"),
-    text: "SuiGram",
+    notification: "disliked",
   },
   {
     id: 8,
     imageURL: require("../assets/images/meme_2.png"),
-    text: "SuiGram",
+    notification: "shared",
   },
   {
     id: 9,
     imageURL: require("../assets/images/meme_3.png"),
-    text: "SuiGram",
+    notification: "gifted",
   },
   {
     id: 10,
     imageURL: require("../assets/images/meme_2.png"),
-    text: "SuiGram",
+    notification: "gifted",
   },
 ];
-
-
 
 export const storyData = [
   {

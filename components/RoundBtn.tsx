@@ -7,6 +7,7 @@ import Animated, {
   withTiming,
   withRepeat,
 } from "react-native-reanimated";
+import { router } from "expo-router";
 
 const RoundBtn = ({ press }: { press?: any }) => {
   const scale = useSharedValue<number>(0.9);
@@ -26,7 +27,7 @@ const RoundBtn = ({ press }: { press?: any }) => {
     <TouchableOpacity
       activeOpacity={0.5}
       //   style={styles.btn}
-      onPress={press}
+      onPress={() => router.push("/home")}
       className='w-[64px] h-[64px] border-2 bg-transparent border-[#A01CFE] flex items-center justify-center  rounded-full'
     >
       <Animated.View
