@@ -18,7 +18,7 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "main",
+  initialRouteName: "(tabs)",
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -30,6 +30,10 @@ export default function RootLayout() {
     SandBold: require("../assets/fonts/sand/static/Quicksand-Bold.ttf"),
     SandRegs: require("../assets/fonts/sand/static/Quicksand-Regular.ttf"),
     SandSemi: require("../assets/fonts/sand/static/Quicksand-SemiBold.ttf"),
+    KufiBold: require("../assets/fonts/kufi/Kufi-Bold.ttf"),
+    KufiSemi: require("../assets/fonts/kufi/Kufi-Semi.ttf"),
+    KufiReg: require("../assets/fonts/kufi/Kufi-Reg.ttf"),
+    KufiMed: require("../assets/fonts/kufi/Kufi-Med.ttf"),
     ...FontAwesome.font,
   });
 
@@ -58,7 +62,7 @@ function RootLayoutNav() {
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack screenOptions={{ headerShown: false }} initialRouteName='(tabs)'>
         <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-        <Stack.Screen name='main' options={{ headerShown: false }} />
+        <Stack.Screen name='index' options={{ headerShown: false }} />
         {/* <Stack.Screen name='modal' options={{ presentation: "modal" }} /> */}
       </Stack>
     </ThemeProvider>

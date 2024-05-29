@@ -1,3 +1,4 @@
+import { actuatedNormalize } from "@/style/stylesheet";
 import React from "react";
 import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
 
@@ -27,11 +28,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 7,
   },
   profileImage: {
-    width: 54,
-    height: 54,
-    borderRadius: 50,
-    borderWidth: 2,
-    borderColor: "#A01CFE",
+    width: actuatedNormalize(90),
+    height: actuatedNormalize(90),
+    borderRadius: actuatedNormalize(30),
+    borderWidth: 0.5,
+    borderStyle: "dashed",
+    borderColor: "#81F495",
   },
 });
 
