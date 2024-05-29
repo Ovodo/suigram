@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
 import * as ImagePicker from "expo-image-picker";
+import { router } from "expo-router";
 import {
   View,
   Text,
@@ -8,7 +9,6 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-  Button,
   ScrollView,
 } from "react-native";
 
@@ -21,9 +21,9 @@ const UploadScreen: React.FC<UploadScreenProps> = () => {
   const navigation = useNavigation();
   const [image, setImage] = useState<string | null>(null);
 
-  // useEffect(() => {
-  //   pickImage();
-  // }, []);
+  useEffect(() => {
+    pickImage();
+  }, []);
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -51,14 +51,10 @@ const UploadScreen: React.FC<UploadScreenProps> = () => {
     }
   };
 
-  const handleNavigate = (Home: string) => {
-    navigation.navigate(Home as never);
-  };
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => handleNavigate("home")}>
+        <TouchableOpacity activeOpacity={0.5} onPress={() => router.back()}>
           <Text style={styles.headerText}>Cancel</Text>
         </TouchableOpacity>
       </View>
