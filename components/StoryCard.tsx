@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   profileImage: {
     width: 54,
     height: 54,
-    borderRadius: 50,
+    borderRadius: 18,
     borderWidth: 2,
     borderColor: "#A01CFE",
   },
