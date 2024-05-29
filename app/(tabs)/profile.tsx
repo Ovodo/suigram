@@ -258,9 +258,12 @@ const ProfileScreen = () => {
          <View style={styles.userBtnWrapper}>
            
             <>
-              <TouchableOpacity style={styles.userBtn} onPress={() => {}}>
-                <Text style={styles.userBtnTxt}>Edit Profile</Text>
+              <TouchableOpacity style={styles.userBtn}>
+                <Text style={styles.userBtnTxt} >Edit Profile</Text>
               </TouchableOpacity>
+
+
+                <Text path='app/edit.tsx'>Edit Profile</Text>
             </>
           
         </View>
