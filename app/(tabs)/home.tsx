@@ -42,7 +42,7 @@ const Main = () => {
             showsHorizontalScrollIndicator={false}
           />
 
-          <View className='flex items-center'>
+          <View className='flex items-center mb-12'>
             {postingData.map((post, index) => (
               <SocialMediaCard
                 key={index.toString()}

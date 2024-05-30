@@ -18,6 +18,7 @@ interface UploadScreenProps {}
 
 const UploadScreen: React.FC<UploadScreenProps> = () => {
   const [textInputValue, setTextInputValue] = useState("");
+  const [categoriesInputValue, setCategoriesInputValue] = useState("");
   const navigation = useNavigation();
   const [image, setImage] = useState<string | null>(null);
 
@@ -41,13 +42,46 @@ const UploadScreen: React.FC<UploadScreenProps> = () => {
   };
 
   // Handle the post
-  const handlePost = () => {
-    console.log("Post button pressed");
+  const handlePost = async () => {
+    if (image) {
+      try {
+        const response = await fetch(
+          "https://suigram-image-uploader.onrender.com/api/upload-img",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              imageUrl: image,
+            }),
+          }
+        );
+
+        const responseData = await response.json();
+        console.log(responseData);
+        if (response.ok) {
+          console.log("Post successful:", responseData);
+        } else {
+          console.error("Error posting:", responseData);
+        }
+      } catch (error) {
+        console.error("Error posting:", error);
+      }
+    } else {
+      console.log("No image selected");
+    }
   };
 
   const handleInputChange = (text: string) => {
     if (text.length <= 100) {
       setTextInputValue(text);
+    }
+  };
+
+  const handleCategoriesChange = (text: string) => {
+    if (text.length <= 100) {
+      setCategoriesInputValue(text);
     }
   };
 
@@ -90,8 +124,8 @@ const UploadScreen: React.FC<UploadScreenProps> = () => {
           <Text style={styles.inputHeader}>Categories / hashtags:</Text>
           <TextInput
             placeholder="Add categories or hashtags"
-            // value={textInputValue}
-            onChangeText={handleInputChange}
+            value={categoriesInputValue}
+            onChangeText={handleCategoriesChange}
             maxLength={100}
             style={styles.textInput}
           />
