@@ -3,11 +3,9 @@
 import React, {useState, useEffect} from 'react';
 import {View,StyleSheet,ScrollView,TextInput} from 'react-native';
 
-// import filter from 'lodash.filter';
+import filter from 'lodash.filter';
 
 import Autosearch from '@/components/app-search/Autosearch';
-
-//  import SearchSvgComponent from '@/assets/icons/search';
 
 
 import SearchIcon from "@/assets/icons/explore.svg";
@@ -21,8 +19,8 @@ const SearchScreen = () => {
   // const [isLoading, setIsLoading] = useState(false);
   // const [data, setData] = useState([]);
   // const [error, setError] = useState(null);
-  // const [fullData, setFullData] = useState([]);
-  // const [searchQuery, setSearchQuery] = useState("");
+//   const [fullData, setFullData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   // useEffect(() => {
   //   //setIsLoading to true
@@ -48,30 +46,30 @@ const SearchScreen = () => {
   //   }
   // }
 
-  // const handleSearch = (query) => {
-  //   setSearchQuery(query);
-  //   const formattedQuery = query.toLowerCase();
-  //   const filteredData = filter(fullData, (user)=> {
-  //     return contains(user, formattedQuery)
-  //   });
-  //   setData(filteredData);
-  // };
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    const formattedQuery = query.toLowerCase();
+    const filteredData = filter(fullData, (user)=> {
+      return contains(user, formattedQuery)
+    });
+    setData(filteredData);
+  };
 
-  // const contains = ({name, email}, query) => {
-  //   const {first, last} = name;
+  const contains = ({name, email}, query) => {
+    const {first, last} = name;
 
-  //   if(first.includes(query) || last.includes(query) || email.includes(query)) {
-  //     return true;
-  //   }
+    if(first.includes(query) || last.includes(query) || email.includes(query)) {
+      return true;
+    }
 
-  //   else {
-  //     return false;
-  //   }
-  // }
+    else {
+      return false;
+    }
+  }
 
   // if(isLoading) {
   //   return (
-  //     <View style={{flex:1, justifyContent: "center", alignItems:"center"}}> 
+  //     <View style={{flex:1, justifyContent: "center", alignItems:"center"}}>
   //       <ActivityIndicator size={"large"} color="#5500dc" />
   //     </View>
   //   )
@@ -79,7 +77,7 @@ const SearchScreen = () => {
 
   // if(error) {
   //   return (
-  //     <View style={{flex:1, justifyContent: "center", alignItems:"center"}}> 
+  //     <View style={{flex:1, justifyContent: "center", alignItems:"center"}}>
   //       <Text> Error in fetching data, please check your internet connection or try again.</Text>
   //     </View>
   //   )
@@ -108,17 +106,10 @@ const SearchScreen = () => {
                       clearButtonMode="always"
                       style={styles.searchBar}
                       autoCapitalize="none"    
-                      autoCorrect={false} 
-                      // value={searchQuery}
-                      // onChangeText={(query) => handleSearch(query)}   
-                      // onFocus={this.handleFocus}
-                      // onBlur={this.handleBlur}
-                      // style={[//Your Styles, {
-                      //     borderBottomColor: this.state.isFocused
-                      //         ? 'black'
-                      //         : 'red',
-                      //     borderBottomWidth: 1,
-                      // }]}  
+                      autoCorrect={false}
+                      onChangeText={(query) => handleSearch(query)}
+                      onFocus={this.handleFocus}
+                      onBlur={this.handleBlur}
                     />
                   </View>
                   
@@ -138,7 +129,7 @@ const SearchScreen = () => {
 
           </View>
 
-          <View id='search-items-container' style={styles.searchGrid}>         
+          <View style={styles.searchGrid}>
               <Autosearch/>
           </View>
 
@@ -171,7 +162,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingRight:0, 
     paddingVertical: 5, 
-    borderColor:"transparent", 
+    borderColor:"transparent",
     borderWidth: 1, 
     borderRadius: 100,
     borderBottomRightRadius: 0,
@@ -193,7 +184,7 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderWidth: 1,
     backgroundColor:"#FFFFFF",
-    width: "80%",
+    width: "99%",
     height: 40,
     flexDirection:"row",
     justifyContent:"space-between",
@@ -240,10 +231,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius:100, 
     borderBottomRightRadius:100,
     borderBottomLeftRadius:100,
-//     shadowColor: '#000',
-//     shadowOffset: { width: 1, height: 2 },
-//     shadowOpacity: 1,
-//     shadowRadius: 4,
     justifyContent:"center",
   },
 

@@ -47,8 +47,6 @@ const Autosearch = () => {
 
                 </View>
 
-{/*                style={[styles.box,{transform: [{scale: 2}], },]}*/}
-
 
                     {item.key}
                 <View style={styles.itemCategoryGifContainer}><Text style={styles.itemCategoryGif}>GIF</Text></View>
@@ -72,6 +70,8 @@ const Autosearch = () => {
 
         <>
 
+
+            {/*
             <View style={styles.searchFilterContainer} >
 
                 {isList == true ? (
@@ -92,6 +92,8 @@ const Autosearch = () => {
                 )}
 
             </View>
+
+            */}
 
 
             {isList == true && (
