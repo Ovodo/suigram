@@ -61,7 +61,6 @@ const styles = StyleSheet.create({
         borderColor: "transparent",
         borderWidth: 2,
         flex: 1, 
-        marginTop: 20, 
-        // alignItems: "center",
+        marginTop: 20,
     }
 });

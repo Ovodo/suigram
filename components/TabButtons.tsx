@@ -66,19 +66,17 @@ const TabButtons = ({buttons, selectedTab, setSelectedTab}: TabButtonsProps) => 
         <View onLayout={onTabLayout} style={styles.tabBtnCont1}>
             {buttons.map((button, index) => {
 
-                const color = selectedTab === index ? "#c333cc" : "transparent";
+                const underlineColor = selectedTab === index ? "#c333cc" : "white";
                 return (
                     <Pressable key={index} onPress={() => onTabPress(index)} style={styles.tabBtn}>
                         <Text 
                         style={
                             {
                                 textDecorationLine: "underline",
-                                textDecorationStyle: "solid",
-                                textDecorationColor: color,
-                                color: "black",
+                                textDecorationColor: underlineColor,
                                 alignSelf: "center",
                                 fontWeight: "600",
-                                fontSize:15,
+                                fontSize:16,
                             }
                         } 
                         

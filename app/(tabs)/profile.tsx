@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
+import { Link } from 'expo-router';
 import {
   View,
   Text,
@@ -259,11 +260,9 @@ const ProfileScreen = () => {
            
             <>
               <TouchableOpacity style={styles.userBtn}>
-                <Text style={styles.userBtnTxt} >Edit Profile</Text>
+                <Link href="/edit" style={styles.userBtnTxt}>Edit Profile</Link>
               </TouchableOpacity>
 
-
-                <Text path='app/edit.tsx'>Edit Profile</Text>
             </>
           
         </View>
@@ -360,6 +359,7 @@ const styles = StyleSheet.create({
   userBtnTxt: {
     color: 'white',
     textAlign: 'center',
+    justifyContent: 'center',
     fontSize: 13,
     lineHeight: 16.25,
   },
