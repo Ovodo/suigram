@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import NotificationIcon from "../assets/icons/notification.svg";
+import NotificationIcon from "../assets/icons/Notification.svg";
 import LogoIcon from "../assets/logos/logo_light.svg";
 import LogoName from "../assets/logos/logo_name.svg";
 import Logo from "../assets/logos/main-logo.svg";

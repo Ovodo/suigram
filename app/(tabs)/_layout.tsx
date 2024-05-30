@@ -163,6 +163,7 @@ export default function TabLayout() {
           name='create'
           options={{
             title: "Create",
+            tabBarStyle: { display: "none" },
             tabBarIconStyle: {
               position: "absolute",
               top: actuatedNormalizeVertical(10),

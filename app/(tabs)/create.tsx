@@ -19,10 +19,10 @@ const CreatePage = () => {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView className='flex-1'>
-        <ScrollView style={styles.container}>
-          <UploadScreen />
-        </ScrollView>
+      <SafeAreaView style={styles.container} className='flex-1'>
+        {/* <ScrollView style={styles.container}> */}
+        <UploadScreen />
+        {/* </ScrollView> */}
       </SafeAreaView>
     </SafeAreaProvider>
   );

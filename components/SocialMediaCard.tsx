@@ -73,7 +73,9 @@ const SocialMediaCard: React.FC<SocialMediaCardProps> = ({
           <View className='flex flex-row w-full gap-3 justify-between items-end'>
             <View className='w-[50%]  flex flex-row flex-wrap gap-[2px]  font-[SandSemi] '>
               {tags.map((tag, i) => (
-                <Text className='text-[12px]'>{tag}</Text>
+                <Text key={i.toString()} className='text-[12px]'>
+                  {tag}
+                </Text>
               ))}
             </View>
             <View className='flex flex-row w-[50%] gap-[10vw] pr-[2vw]  justify-center items-center'>
