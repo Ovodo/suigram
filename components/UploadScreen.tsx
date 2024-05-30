@@ -53,8 +53,35 @@ const UploadScreen: React.FC<UploadScreenProps> = () => {
   };
 
   // Handle the post
-  const handlePost = () => {
-    console.log("Post button pressed");
+  const handlePost = async () => {
+    if (image) {
+      try {
+        const response = await fetch(
+          "https://suigram-image-uploader.onrender.com/api/upload-img",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              imageUrl: image,
+            }),
+          }
+        );
+
+        const responseData = await response.json();
+        console.log(responseData);
+        if (response.ok) {
+          console.log("Post successful:", responseData);
+        } else {
+          console.error("Error posting:", responseData);
+        }
+      } catch (error) {
+        console.error("Error posting:", error);
+      }
+    } else {
+      console.log("No image selected");
+    }
   };
 
   const handleTitleChange = (text: string) => {
@@ -136,33 +163,15 @@ const UploadScreen: React.FC<UploadScreenProps> = () => {
               </View>
             </View>
 
-            <View className='mt-[30%]'>
-              <Text className='font-[SandSemi]' style={styles.inputHeader}>
-                Categories / hashtags:
-              </Text>
-              <View className='flex flex-row w-full relative justify-between'>
-                <TextInput
-                  placeholder='#funny #comic #sweet'
-                  placeholderTextColor={text}
-                  // value={tags}
-                  className='flex-1 text-[12px]'
-                  onChangeText={handleTagsChange}
-                  onSubmitEditing={() => console.log("kool")}
-                  // onChange={(e) => console.log(e.target)}
-                  maxLength={100}
-                  style={[
-                    styles.textInput,
-                    { borderBottomColor: text, color: text },
-                  ]}
-                />
-
-                <View
-                  style={{ borderColor: text }}
-                  className='w-[12vw] absolute flex items-center justify-center right-2 bottom-[25%] self-center h-[12vw] border-[0.2px] rounded-full'
-                >
-                  <Text className='font-[SandSemi] text-[12px] opacity-80'>{`1/40`}</Text>
-                </View>
-              </View>
+            <View>
+              <Text style={styles.inputHeader}>Categories / hashtags:</Text>
+              <TextInput
+                placeholder='Add categories or hashtags'
+                // value={textInputValue}
+                onChangeText={handleInputChange}
+                maxLength={100}
+                style={styles.textInput}
+              />
             </View>
 
             <TouchableOpacity
