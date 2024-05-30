@@ -168,7 +168,7 @@ const UploadScreen: React.FC<UploadScreenProps> = () => {
               <TextInput
                 placeholder='Add categories or hashtags'
                 // value={textInputValue}
-                onChangeText={handleInputChange}
+                onChangeText={handleTitleChange}
                 maxLength={100}
                 style={styles.textInput}
               />
