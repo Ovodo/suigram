@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import NotificationIcon from "../assets/icons/Notification.svg";
 import LogoIcon from "../assets/logos/logo_light.svg";
 import LogoName from "../assets/logos/logo_name.svg";
-import Logo from "../assets/logos/main-logo.svg";
+import Logo from "../assets/logos/svg_logo.svg";
 import {
   actuatedNormalize,
   actuatedNormalizeVertical,
@@ -21,21 +21,20 @@ const NavBar: React.FC<NavBarProps> = ({}) => {
   };
 
   return (
-    <View className='flex flex-row mb-2 pl-[1vw] pr-[2vw] justify-between items-end borde border-white'>
-      <View className='flex flex-row items-end'>
-        {/* <LogoIcon
-          width={actuatedNormalize(24)}
-          height={actuatedNormalizeVertical(24)}
-        />
-        <LogoName
-          width={actuatedNormalize(85)}
-          height={actuatedNormalizeVertical(41)}
-        /> */}
-        <Image
-          className='scale-75 border border-white relative top-[7px]'
-          source={require("@/assets/logos/main-logo.png")}
-        />
-      </View>
+    <View className='flex flex-row mb-2 pl-[1vw] pr-[2vw] justify-between items-center borde border-white'>
+      <Logo
+        width={actuatedNormalize(131)}
+        height={actuatedNormalizeVertical(46)}
+      />
+
+      {/* <Image
+        style={{
+          width: actuatedNormalize(131),
+          height: actuatedNormalizeVertical(46),
+        }}
+        className=''
+        source={require("@/assets/logos/dark.png")}
+      /> */}
       <TouchableOpacity onPress={() => handleNavigate("notification")}>
         <NotificationIcon />
       </TouchableOpacity>
