@@ -1,64 +1,31 @@
-import { StyleSheet } from "react-native";
+import React from "react";
+import { FlatList, View, Animated, ScrollView, StyleSheet } from "react-native";
+import { useState, useRef } from "react";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import SocialMediaCard from "@/components/SocialMediaCard";
+import NavBar from "@/components/NavBar";
+import { postingData } from "@/constants/data";
+import UploadScreen from "@/components/UploadScreen";
+import { useThemeColor } from "@/components/Themed";
 
-import EditScreenInfo from "@/components/EditScreenInfo";
-import { Text, View } from "@/components/Themed";
-import MaskedView from "@react-native-masked-view/masked-view";
-import { LinearGradient } from "expo-linear-gradient";
+const CreatePage = () => {
+  const bg = useThemeColor("background");
+  const styles = StyleSheet.create({
+    container: {
+      // paddingBottom: 40,
+      backgroundColor: bg,
+    },
+  });
 
-export default function FavScreen() {
   return (
-    <MaskedView
-      style={{ flex: 1, flexDirection: "row", height: "100%" }}
-      maskElement={
-        <View
-          style={{
-            // Transparent background because mask is based off alpha channel.
-            backgroundColor: "transparent",
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 60,
-              color: "black",
-              fontWeight: "bold",
-            }}
-          >
-            Basic Mask
-          </Text>
-        </View>
-      }
-    >
-      {/* Shows behind the mask, you can put anything here, such as an image */}
-      {/* <View style={{ flex: 1, height: "100%", backgroundColor: "#324376" }} />
-      <View style={{ flex: 1, height: "100%", backgroundColor: "#F5DD90" }} />
-      <View style={{ flex: 1, height: "100%", backgroundColor: "#F76C5E" }} />
-      <View style={{ flex: 1, height: "100%", backgroundColor: "#e1e1e1" }} /> */}
-      <LinearGradient
-        colors={["#475777", "#14213D"]}
-        start={{ x: 0, y: 1 }}
-        end={{ x: 1, y: 1 }}
-        style={{ flex: 1 }}
-      ></LinearGradient>
-    </MaskedView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container} className='flex-1'>
+        {/* <ScrollView style={styles.container}> */}
+        <UploadScreen />
+        {/* </ScrollView> */}
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
-  },
-});
+export default CreatePage;

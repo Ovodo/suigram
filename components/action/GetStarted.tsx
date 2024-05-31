@@ -4,11 +4,13 @@ import { Text } from "../Themed";
 import { SCREEN_WIDTH, styles } from "@/style/stylesheet";
 import Google from "../../assets/icons/google.svg";
 import Arrow from "../../assets/icons/arr.svg";
+import { router } from "expo-router";
 
 const GetStarted = () => {
   return (
     <TouchableOpacity
       activeOpacity={0.6}
+      onPress={() => router.push("/home ")}
       className='w-[85vw] bg-app_green rounded-full px-[7vw] h-[9vh] flex flex-row justify-between items-center'
     >
       <View className='flex flex-row items-center'>

@@ -30,6 +30,11 @@ export default function RootLayout() {
     SandBold: require("../assets/fonts/sand/static/Quicksand-Bold.ttf"),
     SandRegs: require("../assets/fonts/sand/static/Quicksand-Regular.ttf"),
     SandSemi: require("../assets/fonts/sand/static/Quicksand-SemiBold.ttf"),
+    SandMed: require("../assets/fonts/sand/static/Quicksand-Medium.ttf"),
+    KufiBold: require("../assets/fonts/kufi/Kufi-Bold.ttf"),
+    KufiSemi: require("../assets/fonts/kufi/Kufi-Semi.ttf"),
+    KufiReg: require("../assets/fonts/kufi/Kufi-Reg.ttf"),
+    KufiMed: require("../assets/fonts/kufi/Kufi-Med.ttf"),
     ...FontAwesome.font,
   });
 
