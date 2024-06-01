@@ -189,3 +189,57 @@ export const storyData = [
     imageURL: require("../assets/images/meme_2.png"),
   },
 ];
+
+export const userData = [
+  {
+    title: "Memes",
+    numbers: 40,
+  },
+  {
+    title: "Likes",
+    numbers: 200,
+  },
+  {
+    title: "Dislikes",
+    numbers: 200,
+  },
+  {
+    title: "Shares",
+    numbers: 200,
+  },
+  {
+    title: "Following",
+    numbers: 200,
+  },
+  {
+    title: "Followers",
+    numbers: 200,
+  },
+];
+
+export const profileImages = [
+  require("@/assets/images/posts/post-img-1.jpg"),
+  require("@/assets/images/posts/post-img-2.jpg"),
+  require("@/assets/images/posts/post-img-3.jpg"),
+  require("@/assets/images/posts/post-img-4.jpg"),
+  require("@/assets/images/troll.png"),
+  require("@/assets/images/search/Post-3.png"),
+  require("@/assets/images/posts/post-img-1.jpg"),
+  require("@/assets/images/posts/post-img-2.jpg"),
+  require("@/assets/images/posts/post-img-3.jpg"),
+  require("@/assets/images/posts/post-img-4.jpg"),
+  require("@/assets/images/troll.png"),
+  require("@/assets/images/search/Post-3.png"),
+  require("@/assets/images/posts/post-img-1.jpg"),
+  require("@/assets/images/posts/post-img-2.jpg"),
+  require("@/assets/images/posts/post-img-3.jpg"),
+  require("@/assets/images/posts/post-img-4.jpg"),
+  require("@/assets/images/troll.png"),
+  require("@/assets/images/search/Post-3.png"),
+  require("@/assets/images/posts/post-img-1.jpg"),
+  require("@/assets/images/posts/post-img-2.jpg"),
+  require("@/assets/images/posts/post-img-3.jpg"),
+  require("@/assets/images/posts/post-img-4.jpg"),
+  require("@/assets/images/troll.png"),
+  require("@/assets/images/search/Post-3.png"),
+];

@@ -1,15 +1,28 @@
-import React from 'react';
-import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View, FlatList, Dimensions } from "react-native";
 
 const data = [
-  { key: 'Photos' }, { key: 'Photos' }, { key: 'Photos' }, { key: 'Photos' }, { key: 'Photos' }, { key: 'F' }, { key: 'G' }, { key: 'H' }, { key: 'I' }, { key: 'J' },{ key: 'K' },
+  { key: "Photos" },
+  { key: "Photos" },
+  { key: "Photos" },
+  { key: "Photos" },
+  { key: "Photos" },
+  { key: "F" },
+  { key: "G" },
+  { key: "H" },
+  { key: "I" },
+  { key: "J" },
+  { key: "K" },
 ];
 
-const formatData = (data:any, numColumns:any) => {
+const formatData = (data: any, numColumns: any) => {
   const numberOfFullRows = Math.floor(data.length / numColumns);
 
-  let numberOfElementsLastRow = data.length - (numberOfFullRows * numColumns);
-  while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) {
+  let numberOfElementsLastRow = data.length - numberOfFullRows * numColumns;
+  while (
+    numberOfElementsLastRow !== numColumns &&
+    numberOfElementsLastRow !== 0
+  ) {
     data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
     numberOfElementsLastRow++;
   }
@@ -20,25 +33,19 @@ const formatData = (data:any, numColumns:any) => {
 const numColumns = 3;
 
 export default class Photos extends React.Component {
-
-  renderItem = ({ item, index }) => {
-
+  renderItem = ({ item, index }: { item: any; index: any }) => {
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }
 
     return (
-      <View
-        style={styles.item}
-      >
+      <View style={styles.item}>
         <Text style={styles.itemText}>{item.key}</Text>
       </View>
     );
-
   };
 
   render() {
-
     return (
       <FlatList
         data={formatData(data, numColumns)}
@@ -47,36 +54,31 @@ export default class Photos extends React.Component {
         numColumns={numColumns}
       />
     );
-
   }
-
 }
 
 const styles = StyleSheet.create({
-
   container: {
     borderStyle: "solid",
     borderColor: "transparent",
     borderWidth: 10,
     flex: 1,
-    marginTop: -170,
   },
 
   item: {
-    backgroundColor: '#4D243D',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#4D243D",
+    alignItems: "center",
+    justifyContent: "center",
     flex: 1,
     margin: 1,
-    height: Dimensions.get('window').width / numColumns, // approximate a square
+    height: Dimensions.get("window").width / numColumns, // approximate a square
   },
 
   itemInvisible: {
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
   },
 
   itemText: {
-    color: '#fff',
+    color: "#fff",
   },
-
 });
