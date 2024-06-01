@@ -7,6 +7,7 @@ import {
   ScrollView,
 } from "react-native";
 import { View as BgView, Text } from "./Themed";
+import MentionHashtagTextView from "react-native-mention-hashtag-text";
 
 import LikeIcon from "../assets/icons/like.svg";
 import DislikeIcon from "../assets/icons/dislike.svg";
@@ -38,50 +39,59 @@ const SocialMediaCard: React.FC<SocialMediaCardProps> = ({
   onPress,
   tags,
 }) => {
+  
+  const mentionHashtagClick = (text: string) => {
+    console.log("Clicked to + " + text);
+  };
+  
   return (
     <LinearGradient
-      className='w-[98vw]'
+      className="w-[98vw]"
       colors={["#14213D", "#FFFFFC", "#000000"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={styles.gradientBorder}
     >
-      <BgView className='h-[45vh] w-full' style={styles.container}>
-        <View className='h-[72.5%] ' style={styles.card}>
-          <View className='flex flex-row w-full gap-3 pl-4 py-2  z-[50] justify-start items-center'>
+      <BgView className="h-[45vh] w-full" style={styles.container}>
+        <View className="h-[72.5%] " style={styles.card}>
+          <View className="flex flex-row w-full gap-3 pl-4 py-2  z-[50] justify-start items-center">
             <Image
               // source={imageProfile}
               alt={username}
               width={actuatedNormalize(35)}
               height={actuatedNormalize(35)}
-              className='bg-app_dark  px-1 rounded-full'
+              className="bg-app_dark  px-1 rounded-full"
             />
-            <Text className='bg-[#14213D] text-[#FFFFFF] px-3 py-1 rounded-full text-[12px] font-[KufiMed]'>
+            <Text className="bg-[#14213D] text-[#FFFFFF] px-3 py-1 rounded-full text-[12px] font-[KufiMed]">
               {username}
             </Text>
           </View>
           <Image
             source={imagePost}
-            className='object-cover  w-full h-[70%]'
+            className="object-cover  w-full h-[70%]"
             style={styles.postImage}
           />
         </View>
-        <View className='px-[3vw]  flex-1 py-[1vh] justify-between'>
-          <Text className='text-[18px]  font-[SandBold]'>
+        <View className="px-[3vw]  flex-1 py-[1vh] justify-between">
+          <Text className="text-[18px]  font-[SandBold]">
             PEPE!! Man On the Moon...
           </Text>
-          <View className='flex flex-row w-full gap-3 justify-between items-end'>
-            <View className='w-[50%]  flex flex-row flex-wrap gap-[2px]  font-[SandSemi] '>
+          <View className="flex flex-row w-full gap-3 justify-between items-end">
+            <View className="w-[50%]  flex flex-row flex-wrap gap-[2px]  font-[SandSemi] ">
               {tags.map((tag, i) => (
-                <Text key={i.toString()} className='text-[12px]'>
+                <MentionHashtagTextView
+                  key={i.toString()}
+                  className="text-[12px]"
+                  mentionHashtagPress={mentionHashtagClick}
+                >
                   {tag}
-                </Text>
+                </MentionHashtagTextView>
               ))}
             </View>
-            <View className='flex flex-row w-[50%] gap-[10vw] pr-[2vw]  justify-center items-center'>
+            <View className="flex flex-row w-[50%] gap-[10vw] pr-[2vw]  justify-center items-center">
               <TouchableOpacity activeOpacity={0.3}>
                 <TouchableOpacity activeOpacity={0.3}></TouchableOpacity>
-                <View className='flex flex-row text-[15px] gap-1 justify-center items-center'>
+                <View className="flex flex-row text-[15px] gap-1 justify-center items-center">
                   <LikeIcon
                     width={actuatedNormalize(20)}
                     height={actuatedNormalize(20)}
@@ -91,7 +101,7 @@ const SocialMediaCard: React.FC<SocialMediaCardProps> = ({
                 </View>
               </TouchableOpacity>
               <TouchableOpacity activeOpacity={0.3}>
-                <View className='flex flex-row text-[15px] gap-1 justify-center items-center'>
+                <View className="flex flex-row text-[15px] gap-1 justify-center items-center">
                   <DislikeIcon
                     width={actuatedNormalize(20)}
                     height={actuatedNormalize(20)}
@@ -101,7 +111,7 @@ const SocialMediaCard: React.FC<SocialMediaCardProps> = ({
                 </View>
               </TouchableOpacity>
               <TouchableOpacity activeOpacity={0.3}>
-                <View className='flex flex-row text-[15px] gap-1 justify-center items-center'>
+                <View className="flex flex-row text-[15px] gap-1 justify-center items-center">
                   <GitfIcon
                     width={actuatedNormalize(20)}
                     height={actuatedNormalize(20)}
@@ -111,7 +121,7 @@ const SocialMediaCard: React.FC<SocialMediaCardProps> = ({
                 </View>
               </TouchableOpacity>
               <TouchableOpacity activeOpacity={0.3}>
-                <View className='flex flex-row text-[15px] gap-1 justify-center items-center'>
+                <View className="flex flex-row text-[15px] gap-1 justify-center items-center">
                   <SendIcon
                     width={actuatedNormalize(20)}
                     height={actuatedNormalize(20)}

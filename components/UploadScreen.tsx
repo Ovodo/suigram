@@ -162,16 +162,33 @@ const UploadScreen: React.FC<UploadScreenProps> = () => {
                 <Text className='font-[SandSemi] text-[12px] opacity-80'>{`${title.length}/40`}</Text>
               </View>
             </View>
+            <View className='mt-[30%]'>
+              <Text className='font-[SandSemi]' style={styles.inputHeader}>
+                Categories / hashtags:
+              </Text>
+              <View className='flex flex-row w-full relative justify-between'>
+                <TextInput
+                  placeholder='#funny #comic #sweet'
+                  placeholderTextColor={text}
+                  // value={tags}
+                  className='flex-1 text-[12px]'
+                  onChangeText={handleTagsChange}
+                  onSubmitEditing={() => console.log("kool")}
+                  // onChange={(e) => console.log(e.target)}
+                  maxLength={100}
+                  style={[
+                    styles.textInput,
+                    { borderBottomColor: text, color: text },
+                  ]}
+                />
 
-            <View>
-              <Text style={styles.inputHeader}>Categories / hashtags:</Text>
-              <TextInput
-                placeholder='Add categories or hashtags'
-                // value={textInputValue}
-                onChangeText={handleTitleChange}
-                maxLength={100}
-                style={styles.textInput}
-              />
+                <View
+                  style={{ borderColor: text }}
+                  className='w-[12vw] absolute flex items-center justify-center right-2 bottom-[25%] self-center h-[12vw] border-[0.2px] rounded-full'
+                >
+                  <Text className='font-[SandSemi] text-[12px] opacity-80'>{`1/40`}</Text>
+                </View>
+              </View>
             </View>
 
             <TouchableOpacity
