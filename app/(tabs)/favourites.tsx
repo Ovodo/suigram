@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import NavBar from "@/components/NavBar";
 import TabScreen from "@/components/app-favorities/TabScreen";
@@ -16,11 +16,11 @@ const FavScreen = () => {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={styles.container} className="flex-1 pb-5">
+      <SafeAreaView style={styles.container} className="flex-1">
         <NavBar />
-        <ScrollView className="flex-1 pb-5">
+        <View className="flex-1">
           <TabScreen />
-        </ScrollView>
+        </View>
       </SafeAreaView>
     </SafeAreaProvider>
   );
