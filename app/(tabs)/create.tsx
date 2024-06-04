@@ -8,7 +8,7 @@ import { postingData } from "@/constants/data";
 import UploadScreen from "@/components/UploadScreen";
 import { useThemeColor } from "@/components/Themed";
 
-const CreatePage = () => {
+const CreateScreen = () => {
   const bg = useThemeColor("background");
   const styles = StyleSheet.create({
     container: {
@@ -28,4 +28,4 @@ const CreatePage = () => {
   );
 };
 
-export default CreatePage;
+export default CreateScreen;
