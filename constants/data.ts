@@ -35,7 +35,10 @@ export const postingData = [
       "#memcoins",
       "#crying",
       "#hardlife",
-      "invicible",
+      "#invicible",
+      "#funny",
+      "#crypto",
+      "#memcoins",
     ],
   },
   {
@@ -53,7 +56,7 @@ export const postingData = [
       "#memcoins",
       "#crying",
       "#hardlife",
-      "invicible",
+      "#invicible",
     ],
   },
   {
@@ -71,7 +74,7 @@ export const postingData = [
       "#memcoins",
       "#crying",
       "#hardlife",
-      "invicible",
+      "#invicible",
     ],
   },
   {
@@ -89,7 +92,7 @@ export const postingData = [
       "#memcoins",
       "#crying",
       "#hardlife",
-      "invicible",
+      "#invicible",
     ],
   },
 ].reverse();

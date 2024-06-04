@@ -81,7 +81,7 @@ const SocialMediaCard: React.FC<SocialMediaCardProps> = ({
               {tags.map((tag, i) => (
                 <MentionHashtagTextView
                   key={i.toString()}
-                  className="text-[12px]"
+                  className="text-[12px] text-[#EFF4C3]"
                   mentionHashtagPress={mentionHashtagClick}
                 >
                   {tag}
